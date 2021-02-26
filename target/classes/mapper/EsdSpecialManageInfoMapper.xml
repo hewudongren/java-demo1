@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdSpecialManageInfoMapper">
+  <sql id="newCondition">
+    <if test="sampleNames != null and sampleNames.size >0">
+      and sample_name in
+      <foreach collection='sampleNames' index='index' item='str'
+               separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="suppliers != null and suppliers.size >0">
+      and supplier in
+      <foreach collection='suppliers' index='index'
+               item='str' separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="models != null and models .size >0">
+      and model in
+      <foreach collection='models' index='index' item='str'
+               separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="materials != null and materials.size >0">
+      and materials in
+      <foreach collection='materials' index='index' item='str'
+               separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="handlingMethods != null and handlingMethods.size >0">
+      and handling_method in
+      <foreach collection='handlingMethods' index='index'
+               item='str' separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="demandDepartments != null and demandDepartments.size >0">
+      and demand_department in
+      <foreach collection='demandDepartments' index='index' item='str'
+               separator=',' open='(' close=')'>
+        #{str}
+      </foreach>
+    </if>
+    <if test="assignee != null and assignee != ''">
+      and (demand_proposer = #{assignee} or creator = #{assignee})
+    </if>
+    <if test="startTime != null and endTime != null and startTime != '' and endTime != '' ">
+      and inspection_date &gt;= #{startTime} and inspection_date &lt;=
+      #{endTime}
+    </if>
+  </sql>
+
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialManageInfo">
+    insert into esd_special_manage_info (id,item_number,sample_name, supplier,
+      model, specification_model, materials,
+      delivered_qty, sampling_method, sampling_rate, 
+      sampling_qty, ambient_temperature, ambient_humidity, 
+      inspection_date, checker, demand_department, 
+      demand_proposer, demand_date, handling_method, 
+      remarks,qualified_qty, final_result,
+      acceptance_rate,creator)
+    values (#{id,jdbcType=VARCHAR},esd_llj_generator(), #{sampleName,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR},
+      #{model,jdbcType=VARCHAR}, #{specificationModel,jdbcType=VARCHAR}, #{materials,jdbcType=VARCHAR},
+      #{deliveredQty,jdbcType=INTEGER}, #{samplingMethod,jdbcType=VARCHAR}, #{samplingRate,jdbcType=VARCHAR}, 
+      #{samplingQty,jdbcType=INTEGER}, #{ambientTemperature,jdbcType=VARCHAR}, #{ambientHumidity,jdbcType=VARCHAR}, 
+      #{inspectionDate,jdbcType=TIMESTAMP}, #{checker,jdbcType=VARCHAR}, #{demandDepartment,jdbcType=VARCHAR}, 
+      #{demandProposer,jdbcType=VARCHAR}, #{demandDate,jdbcType=TIMESTAMP}, #{handlingMethod,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR},#{qualifiedQty,jdbcType=INTEGER}, #{finalResult,jdbcType=VARCHAR},
+      #{acceptanceRate,jdbcType=REAL},#{creator})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialManageInfo">
+    update esd_special_manage_info
+    set
+      handling_method = #{handlingMethod,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey2" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialManageInfo">
+    update esd_special_manage_info
+    set
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryId" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialManageInfo">
+    update esd_special_manage_info
+    set
+      handling_method = '特采'
+    where
+    id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="findSpecialManageInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpeciaManageSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialManageInfo">
+      select  * from  esd_special_manage_info where  1= 1
+      <include refid="newCondition"/>
+      order  by inspection_date desc
+      <if test="page != null and size != null">
+      LIMIT #{page},#{size}
+      </if>
+  </select>
+
+  <select id="findSpecialManageCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpeciaManageSearch" resultType="Long">
+    select  count(1) from  esd_special_manage_info where  1= 1
+    <include refid="newCondition"/>
+  </select>
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.apqp.dao.ApqpDashBoardMapper">
+
+    <select id="getAddCount" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="java.lang.Integer">
+        select count(*) from apqp_master_document
+        where 1 = 1
+        <include refid="timeHandle"/>
+    </select>
+
+    <select id="getCloseCount" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="java.lang.Integer">
+        select count(*) from apqp_master_document
+        where status = 'Close'
+        <include refid="timeHandle"/>
+    </select>
+
+    <select id="getProcessingCount" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="java.lang.Integer">
+        SELECT
+        count(DISTINCT master_id)
+        from apqp_subdocument
+        <include refid="getProcessingCount"/>
+    </select>
+
+    <select id="getOverdueCount" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="java.lang.Integer">
+        SELECT
+        count(DISTINCT master_id)
+        FROM
+        apqp_subdocument
+        <include refid="getOverdueCount"/>
+    </select>
+
+
+    <select id="getAddCountGroupByItem" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="com.alibaba.fastjson.JSONObject">
+        select item, count(*) as addCount
+        from apqp_master_document
+        where 1=1
+        <include refid="timeHandle"/>
+        GROUP BY item
+    </select>
+
+    <select id="getCloseCountGroupByItem" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="com.alibaba.fastjson.JSONObject">
+        select item, count(*) as closeCount
+        from apqp_master_document
+        where status = 'Close'
+        <include refid="timeHandle"/>
+        GROUP BY item
+    </select>
+
+    <select id="getProcessingCountGroupByItem" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="com.alibaba.fastjson.JSONObject">
+        select item, count(DISTINCT master_id) as processingCount
+        from apqp_subdocument
+        <include refid="getProcessingCount" />
+        GROUP BY item
+    </select>
+
+    <select id="getOverdueCountGroupByItem" parameterType="cn.jwis.qualityworkflow.bean.TimeBean" resultType="com.alibaba.fastjson.JSONObject">
+        select item, count(DISTINCT master_id) as overdueCount
+        from apqp_subdocument
+        <include refid="getOverdueCount" />
+        GROUP BY item
+    </select>
+
+    <select id="getAddCountGroupBy" parameterType="cn.jwis.qualityworkflow.bean.QueryDetailedInfoVo" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT eng_phase, document, count(document) as num
+        from apqp_document_info
+        where 1=1
+        <include refid="timeHandle"/>
+        GROUP BY eng_phase,document
+    </select>
+
+    <select id="getCloseCountGroupBy" parameterType="cn.jwis.qualityworkflow.bean.QueryDetailedInfoVo" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT eng_phase, document, count(document) as num
+        from apqp_document_info
+        where status = 'Close'
+        <include refid="timeHandle"/>
+        GROUP BY eng_phase,document
+    </select>
+
+    <select id="getOverdueCountGroupBy" parameterType="cn.jwis.qualityworkflow.bean.QueryDetailedInfoVo" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT eng_phase, document, count(document) as num
+        from apqp_document_info
+        where status = 'OnGoing'
+        and now() >= deadline
+        <include refid="timeHandle"/>
+        GROUP BY eng_phase,document
+    </select>
+
+    <select id="getProcessingCountGroupBy" parameterType="cn.jwis.qualityworkflow.bean.QueryDetailedInfoVo" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT eng_phase, document, count(document) as num
+        from apqp_document_info
+        where status = 'OnGoing'
+        and now() &lt; deadline
+        <include refid="timeHandle"/>
+        GROUP BY eng_phase,document
+    </select>
+
+    <sql id="getOverdueCount">
+        WHERE now() >= qc_chart_deadline
+        AND master_id is not null
+        <include refid="timeHandle"/>
+    </sql>
+
+    <sql id = "getProcessingCount">
+        WHERE master_id NOT IN (
+        SELECT
+        DISTINCT master_id
+        FROM
+        apqp_subdocument
+        <include refid="getOverdueCount"/>)
+        <include refid="timeHandle" />
+    </sql>
+
+    <sql id="timeHandle">
+        <if test='startTime and startTime !=null != ""'>
+            AND create_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+        </if>
+    </sql>
+</mapper>

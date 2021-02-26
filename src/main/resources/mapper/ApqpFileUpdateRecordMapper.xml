@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.apqp.dao.ApqpFileUpdateRecordMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.apqp.bean.ApqpFileUpdateRecord">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="file_version" jdbcType="VARCHAR" property="fileVersion" />
+    <result column="file_owner" jdbcType="VARCHAR" property="fileOwner" />
+    <result column="file_effective_time" jdbcType="TIMESTAMP" property="fileEffectiveTime" />
+    <result column="file_overdue_time" jdbcType="TIMESTAMP" property="fileOverdueTime" />
+    <result column="file_update_time" jdbcType="TIMESTAMP" property="fileUpdateTime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, model, file_name, file_version, file_owner, file_effective_time, file_overdue_time, 
+    file_update_time, creator, create_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from apqp_file_update_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from apqp_file_update_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.apqp.bean.ApqpFileUpdateRecord">
+    insert into apqp_file_update_record (id, model, file_name, 
+      file_version, file_owner, file_effective_time, 
+      file_overdue_time, file_update_time, creator, 
+      create_date, update_date)
+    values (#{id,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, 
+      #{fileVersion,jdbcType=VARCHAR}, #{fileOwner,jdbcType=VARCHAR}, #{fileEffectiveTime,jdbcType=TIMESTAMP}, 
+      #{fileOverdueTime,jdbcType=TIMESTAMP}, #{fileUpdateTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.jwis.qualityworkflow.modules.apqp.bean.ApqpFileUpdateRecord">
+    insert into apqp_file_update_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="fileVersion != null">
+        file_version,
+      </if>
+      <if test="fileOwner != null">
+        file_owner,
+      </if>
+      <if test="fileEffectiveTime != null">
+        file_effective_time,
+      </if>
+      <if test="fileOverdueTime != null">
+        file_overdue_time,
+      </if>
+      <if test="fileUpdateTime != null">
+        file_update_time,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileVersion != null">
+        #{fileVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="fileOwner != null">
+        #{fileOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="fileEffectiveTime != null">
+        #{fileEffectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileOverdueTime != null">
+        #{fileOverdueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileUpdateTime != null">
+        #{fileUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map">
+    update apqp_file_update_record
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.model != null">
+        model = #{record.model,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileName != null">
+        file_name = #{record.fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileVersion != null">
+        file_version = #{record.fileVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileOwner != null">
+        file_owner = #{record.fileOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileEffectiveTime != null">
+        file_effective_time = #{record.fileEffectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fileOverdueTime != null">
+        file_overdue_time = #{record.fileOverdueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fileUpdateTime != null">
+        file_update_time = #{record.fileUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.creator != null">
+        creator = #{record.creator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update apqp_file_update_record
+    set id = #{record.id,jdbcType=VARCHAR},
+      model = #{record.model,jdbcType=VARCHAR},
+      file_name = #{record.fileName,jdbcType=VARCHAR},
+      file_version = #{record.fileVersion,jdbcType=VARCHAR},
+      file_owner = #{record.fileOwner,jdbcType=VARCHAR},
+      file_effective_time = #{record.fileEffectiveTime,jdbcType=TIMESTAMP},
+      file_overdue_time = #{record.fileOverdueTime,jdbcType=TIMESTAMP},
+      file_update_time = #{record.fileUpdateTime,jdbcType=TIMESTAMP},
+      creator = #{record.creator,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jwis.qualityworkflow.modules.apqp.bean.ApqpFileUpdateRecord">
+    update apqp_file_update_record
+    <set>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        file_name = #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileVersion != null">
+        file_version = #{fileVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="fileOwner != null">
+        file_owner = #{fileOwner,jdbcType=VARCHAR},
+      </if>
+      <if test="fileEffectiveTime != null">
+        file_effective_time = #{fileEffectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileOverdueTime != null">
+        file_overdue_time = #{fileOverdueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileUpdateTime != null">
+        file_update_time = #{fileUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.apqp.bean.ApqpFileUpdateRecord">
+    update apqp_file_update_record
+    set model = #{model,jdbcType=VARCHAR},
+      file_name = #{fileName,jdbcType=VARCHAR},
+      file_version = #{fileVersion,jdbcType=VARCHAR},
+      file_owner = #{fileOwner,jdbcType=VARCHAR},
+      file_effective_time = #{fileEffectiveTime,jdbcType=TIMESTAMP},
+      file_overdue_time = #{fileOverdueTime,jdbcType=TIMESTAMP},
+      file_update_time = #{fileUpdateTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <!--自写SQL-->
+  <!--自写SQL-->
+  <select id="getList" parameterType="cn.jwis.qualityworkflow.modules.apqp.bean.QueryFileUpdateVo" resultMap="BaseResultMap">
+    select * from apqp_file_update_record
+    where 1=1
+    <if test="model != null and model.size > 0">
+      AND model in
+      <foreach collection='model' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="fileOwner != null and fileOwner.size > 0">
+      AND file_owner in
+      <foreach collection='fileOwner' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime !=null and startTime  != ""'>
+      AND ${time}  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND ${time} &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+  </select>
+</mapper>

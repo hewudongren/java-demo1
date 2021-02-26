@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.ipqc.dao.PatrolProblemRecordMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.ipqc.bean.PatrolProblemRecord">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="works_section" jdbcType="VARCHAR" property="worksSection" />
+    <result column="line" jdbcType="VARCHAR" property="line" />
+    <result column="audit_type" jdbcType="VARCHAR" property="auditType" />
+    <result column="audit_date" jdbcType="TIMESTAMP" property="auditDate" />
+    <result column="frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="inspector" jdbcType="VARCHAR" property="inspector" />
+    <result column="problem_description" jdbcType="VARCHAR" property="problemDescription" />
+    <result column="problem_picture" jdbcType="VARCHAR" property="problemPicture" />
+    <result column="cumulative_frequency" jdbcType="INTEGER" property="cumulativeFrequency" />
+    <result column="problem_type" jdbcType="VARCHAR" property="problemType" />
+    <result column="fault_type" jdbcType="VARCHAR" property="faultType" />
+    <result column="problem_attribute" jdbcType="VARCHAR" property="problemAttribute" />
+    <result column="squad_leader" jdbcType="VARCHAR" property="squadLeader" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="audit_list_id" jdbcType="VARCHAR" property="auditListId" />
+    <result column="status_update_date" jdbcType="VARCHAR" property="statusUpdateDate" />
+    <result column="is_signature" jdbcType="VARCHAR" property="isSignature" />
+    <result column="whether_repetition" jdbcType="VARCHAR" property="whetherRepetition" />
+  </resultMap>
+  <select id="getPatrolProblemRecordList" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryPatrolProblemRecord" resultMap="BaseResultMap">
+    select p.* from patrol_problem_record p where 1=1
+    <if test='modelList != null and modelList.size > 0'>
+      and p.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='worksSectionList != null and worksSectionList.size > 0'>
+      and p.works_section in
+      <foreach close=")" collection="worksSectionList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='frequencyList != null and frequencyList.size > 0'>
+      and p.frequency in
+      <foreach close=")" collection="frequencyList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='problemAttributeList != null and problemAttributeList.size > 0'>
+      and p.problem_attribute in
+      <foreach close=")" collection="problemAttributeList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='inspectorList != null and inspectorList.size > 0'>
+      and p.inspector in
+      <foreach close=")" collection="inspectorList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='auditDate != null and auditDate != ""'>
+      AND p.audit_date = #{auditDate}
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND p.audit_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND p.audit_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+    order by p.create_date desc limit #{pageNum},#{pageSize}
+  </select>
+
+
+  <select id="getPatrolProblemRecordCount" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryPatrolProblemRecord" resultType="Long">
+    select count(1) from patrol_problem_record p where 1=1
+    <if test='modelList != null and modelList.size > 0'>
+      and p.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='worksSectionList != null and worksSectionList.size > 0'>
+      and p.works_section in
+      <foreach close=")" collection="worksSectionList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='frequencyList != null and frequencyList.size > 0'>
+      and p.frequency in
+      <foreach close=")" collection="frequencyList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='problemAttributeList != null and problemAttributeList.size > 0'>
+      and p.problem_attribute in
+      <foreach close=")" collection="problemAttributeList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='inspectorList != null and inspectorList.size > 0'>
+      and p.inspector in
+      <foreach close=")" collection="inspectorList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='auditDate != null and auditDate != ""'>
+      AND p.audit_date = #{auditDate}
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND p.audit_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND p.audit_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+  </select>
+
+
+  <insert id="insertPatrolProblemRecord" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.PatrolProblemRecord">
+  insert  into patrol_problem_record(id,model,works_section,line,audit_type,audit_date,frequency,inspector,problem_description,problem_picture,cumulative_frequency,problem_type,fault_type,problem_attribute,squad_leader,owner,status,status_update_date,is_signature,time_interval,audit_list_detail_id,whether_repetition,create_date,audit_template_detail_id,station)
+  values (#{id},#{model},#{worksSection},#{line},#{auditType},#{auditDate},#{frequency},#{inspector},#{problemDescription},#{problemPicture},#{cumulativeFrequency},#{problemType},#{faultType},#{problemAttribute},#{squadLeader},#{owner},#{status},#{statusUpdateDate},#{isSignature},#{timeInterval},#{auditListDetailId},#{whetherRepetition},#{createDate},#{auditTemplateDetailId},#{station})
+  </insert>
+
+
+  <select id="exportPatrolProblemRecord" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryPatrolProblemRecord" resultMap="BaseResultMap">
+    select p.* from patrol_problem_record p where 1=1
+    <if test='modelList != null and modelList.size > 0'>
+      and p.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='worksSectionList != null and worksSectionList.size > 0'>
+      and p.works_section in
+      <foreach close=")" collection="worksSectionList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='frequencyList != null and frequencyList.size > 0'>
+      and p.frequency in
+      <foreach close=")" collection="frequencyList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='problemAttributeList != null and problemAttributeList.size > 0'>
+      and p.problem_attribute in
+      <foreach close=")" collection="problemAttributeList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='inspectorList != null and inspectorList.size > 0'>
+      and p.inspector in
+      <foreach close=")" collection="inspectorList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='auditDate != null and auditDate != ""'>
+      AND p.audit_date = #{auditDate}
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND p.audit_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND p.audit_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+    order by p.create_date desc
+  </select>
+</mapper>

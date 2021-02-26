@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.traceablity.dao.TraceabilityMachineMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.traceablity.bean.TraceabilityMachine">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="device_no" jdbcType="VARCHAR" property="deviceNo" />
+    <result column="line" jdbcType="VARCHAR" property="line" />
+    <result column="device_type" jdbcType="VARCHAR" property="deviceType" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="specification_floor_value" jdbcType="VARCHAR" property="specificationFloorValue" />
+    <result column="specification_up_value" jdbcType="VARCHAR" property="specificationUpValue" />
+    <result column="specification_centre_value" jdbcType="VARCHAR" property="specificationCentreValue" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="checkout_time" jdbcType="VARCHAR" property="checkoutTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="parameter" jdbcType="VARCHAR" property="parameter" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+  </resultMap>
+
+  <select id="getTraceabilityMachine" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityMachineVo" resultMap="BaseResultMap">
+   select t.* from  traceability_machine t where 1=1
+    <if test = 'lineList != null and lineList.size>0'>
+    and t.line in
+    <foreach collection='lineList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = 'deviceNoList != null and deviceNoList.size>0'>
+    and t.device_no in
+    <foreach collection='deviceNoList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+      <if test = 'deviceTypeList != null and deviceTypeList.size>0'>
+          and t.device_type in
+          <foreach collection='deviceTypeList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'parameterList != null and parameterList.size>0'>
+          and t.parameter in
+          <foreach collection='parameterList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'startTime != null and startTime != ""'>
+          AND t.create_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+      </if>
+      <if test = 'endTime != null and endTime !="" '>
+          AND t.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+      </if>
+      order by t.create_date desc
+      <if test = 'pageNum != null and pageSize !=null'>
+          limit #{pageNum},#{pageSize}
+      </if>
+
+  </select>
+
+
+  <select id="getTraceabilityMachineCount" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityMachineVo" resultType="Long">
+    select count(1) from  traceability_machine t where 1=1
+      <if test = 'lineList != null and lineList.size>0'>
+          and t.line in
+          <foreach collection='lineList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'deviceNoList != null and deviceNoList.size>0'>
+          and t.device_no in
+          <foreach collection='deviceNoList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'deviceTypeList != null and deviceTypeList.size>0'>
+          and t.device_type in
+          <foreach collection='deviceTypeList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'parameterList != null and parameterList.size>0'>
+          and t.parameter in
+          <foreach collection='parameterList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+      </if>
+      <if test = 'startTime != null and startTime != ""'>
+          AND t.create_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+      </if>
+      <if test = 'endTime != null and endTime !="" '>
+          AND t.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+      </if>
+  </select>
+
+    <insert id="insertTraceabilityMachine" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.TraceabilityMachine" >
+            insert  into traceability_machine(id,area,device_no,line,device_type,unit,specification_floor_value,specification_up_value,specification_centre_value,creator,checkout_time,remark,create_date,parameter)
+            values(#{id},#{area},#{deviceNo},#{line},#{deviceType},#{unit},#{specificationFloorValue},#{specificationUpValue},#{specificationCentreValue},#{creator},#{checkoutTime},#{remark},#{createDate},#{parameter})
+    </insert>
+
+</mapper>

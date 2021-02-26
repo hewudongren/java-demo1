@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>template</title>
+    <style type='text/css'>
+        html {
+            font-size: 14px;
+            overflow-x: initial !important;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            font-size: 1rem;
+            line-height: 1.42857143;
+        }
+
+        #title {
+            padding: 10px 10px 10px 30px;
+        }
+
+        #title,
+        ul {
+            list-style-type: none;
+        }
+
+        #title,
+        ul,
+        li {
+            text-align: left;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 6px 12px;
+        }
+
+        .black {
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .bisque{
+            background-color:bisque;
+        }
+        .chocolate{
+            background-color:rgb(223, 166, 93);
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="title">
+    <p>Dear All</p >
+    <table  >
+        <tr>
+            <td class="black bisque">段別: </td>
+            <td th:each="entries,stat:${resultList}" colspan="3" class="black yellow"><span th:text="${entries['engPhase']}"></span>段</td>
+            <td th:each="ent,stat:${testList}" colspan="1" class="black yellow">TEST段</td>
+        </tr>
+
+        <tr>
+            <td class="black bisque">Function team: </td>
+            <div th:each="entries,stat:${resultList}">
+                <td  colspan="2" class="chocolate"><span th:text="${entries['engPhase']}"></span> ENG</td>
+                <td  class="chocolate"><span th:text="${entries['engPhase']}"></span>质量</td>
+            </div>
+            <div th:each="ent,stat:${testList}">
+                <td  colspan="1" class="chocolate">TEST ENG</td>
+            </div>
+        </tr>
+
+        <tr>
+            <td class="black bisque">Owner</td>
+            <div th:each="entries,stat:${resultList}">
+                <td ><span th:text="${entries['owner']}"></span></td>
+                <td><span th:text="${entries['owner']}"></span></td>
+                <td ><span th:text="${entries['qe']}"></span></td>
+            </div>
+            <div th:each="ent,stat:${testList}">
+                <td ><span th:text="${ent['owner']}"></span></td>
+            </div>
+        </tr>
+
+        <tr >
+            <td class="black bisque">需上传文件</td>
+            <div th:each="entries,stat:${resultList}">
+                <td >NUDD/DFX</td>
+                <td >PFMEA</td>
+                <td >QC_CHART</td>
+            </div>
+            <div th:each="ent,stat:${testList}">
+                <td >NUDD/DFX</td>
+            </div>
+        </tr>
+
+        <tr>
+            <td class="black bisque">状态</td>
+            <div th:each="entries,stat:${resultList}">
+                <td ><a th:href="${entries['url']}"><span th:text="${entries['dvt1Status']}"></span></a></td>
+                <td ><a th:href="${entries['url']}"><span th:text="${entries['pfmeaStatus']}"></span></a></td>
+                <td ><a th:href="${entries['url']}"><span th:text="${entries['qcChartStatus']}"></span></a></td>
+            </div>
+            <div th:each="ent,stat:${testList}">
+                <td ><a th:href="${ent['url']}"><span th:text="${ent['dvt1Status']}"></span></a></td>
+            </div>
+        </tr>
+
+    </table>
+</div>
+</body>
+
+</html>

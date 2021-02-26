@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdAuditAbnormalMapper">
+
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditAbnormal">
+    insert into esd_audit_abnormal (id,item_number,audit_type, audit_date,
+      frequency, line, auditer, 
+      problem_classification, grade_problem, responsible_department, 
+      person_liable, problem_description, status, 
+      cause_analysis, causal_analyst, causal_analyst_date, 
+      improvement_measures, improvement_measuresor, 
+      improvement_measures_date, effect_verification, 
+      verifiedor, verified_date, approval_result, 
+      case_closing_approver, case_closing_date, 
+      assigneer, assigneer_department,creator)
+    values (#{id,jdbcType=VARCHAR},#{itemNumber}, #{auditType,jdbcType=VARCHAR}, #{auditDate,jdbcType=TIMESTAMP},
+      #{frequency,jdbcType=VARCHAR}, #{line,jdbcType=VARCHAR}, #{auditer,jdbcType=VARCHAR}, 
+      #{problemClassification,jdbcType=VARCHAR}, #{gradeProblem,jdbcType=VARCHAR}, #{responsibleDepartment,jdbcType=VARCHAR}, 
+      #{personLiable,jdbcType=VARCHAR}, #{problemDescription,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{causeAnalysis,jdbcType=VARCHAR}, #{causalAnalyst,jdbcType=VARCHAR}, #{causalAnalystDate,jdbcType=TIMESTAMP}, 
+      #{improvementMeasures,jdbcType=VARCHAR}, #{improvementMeasuresor,jdbcType=VARCHAR}, 
+      #{improvementMeasuresDate,jdbcType=TIMESTAMP}, #{effectVerification,jdbcType=VARCHAR}, 
+      #{verifiedor,jdbcType=VARCHAR}, #{verifiedDate,jdbcType=TIMESTAMP}, #{approvalResult,jdbcType=VARCHAR}, 
+      #{caseClosingApprover,jdbcType=VARCHAR}, #{caseClosingDate,jdbcType=TIMESTAMP}, 
+      #{assigneer,jdbcType=VARCHAR}, #{assigneerDepartment,jdbcType=VARCHAR},#{creator,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditAbnormal">
+    update esd_audit_abnormal
+    set audit_type = #{auditType,jdbcType=VARCHAR},
+      audit_date = #{auditDate,jdbcType=TIMESTAMP},
+      frequency = #{frequency,jdbcType=VARCHAR},
+      line = #{line,jdbcType=VARCHAR},
+      auditer = #{auditer,jdbcType=VARCHAR},
+      problem_classification = #{problemClassification,jdbcType=VARCHAR},
+      grade_problem = #{gradeProblem,jdbcType=VARCHAR},
+      responsible_department = #{responsibleDepartment,jdbcType=VARCHAR},
+      person_liable = #{personLiable,jdbcType=VARCHAR},
+      problem_description = #{problemDescription,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      cause_analysis = #{causeAnalysis,jdbcType=VARCHAR},
+      causal_analyst = #{causalAnalyst,jdbcType=VARCHAR},
+      causal_analyst_date = #{causalAnalystDate,jdbcType=TIMESTAMP},
+      improvement_measures = #{improvementMeasures,jdbcType=VARCHAR},
+      improvement_measuresor = #{improvementMeasuresor,jdbcType=VARCHAR},
+      improvement_measures_date = #{improvementMeasuresDate,jdbcType=TIMESTAMP},
+      effect_verification = #{effectVerification,jdbcType=VARCHAR},
+      verifiedor = #{verifiedor,jdbcType=VARCHAR},
+      verified_date = #{verifiedDate,jdbcType=TIMESTAMP},
+      approval_result = #{approvalResult,jdbcType=VARCHAR},
+      case_closing_approver = #{caseClosingApprover,jdbcType=VARCHAR},
+      case_closing_date = #{caseClosingDate,jdbcType=TIMESTAMP},
+      assigneer = #{assigneer,jdbcType=VARCHAR},
+      assigneer_department = #{assigneerDepartment,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getEsdAuditAbnormalInfoList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAudiMainSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditAbnormal">
+    select e.*,ar.process_instance_id,ar.task_id,ar.task_state,ar.workflow_business_id  FROM esd_audit_abnormal e,
+    ( SELECT
+    t1.process_instance_id,
+    t1.task_id,
+    t1.task_state,
+    t1.workflow_business_id
+    FROM
+    task_record t1
+    INNER JOIN (
+    SELECT
+    process_instance_id,
+    max( task_id ) AS task_id,
+    assignee
+    FROM
+    task_record
+    WHERE 1=1
+    <if test="assignee != null and assignee !=''">
+      and  assignee = #{assignee}
+    </if>
+     AND template_key = 'ESDAUDIT' GROUP BY process_instance_id ) t2
+    ON t1.process_instance_id = t2.process_instance_id
+    and t1.task_id = t2.task_id
+    ) ar where e.id=ar.workflow_business_id
+    <if test='auditTypes != null and auditTypes.size > 0'>
+      AND audit_type in
+      <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='lines != null and lines.size > 0'>
+      AND line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='problemClassifications != null and problemClassifications.size > 0'>
+      AND problem_classification in
+      <foreach collection='problemClassifications' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='responsibleDepartments != null and responsibleDepartments.size > 0'>
+      AND responsible_department in
+      <foreach collection='responsibleDepartments' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='status != null and status.size > 0'>
+      AND status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != "" and startTime !=null '>
+      AND audit_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND audit_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+    order  by create_date desc
+    <if test="page != null and size != null">
+      Limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getEsdAuditAbnormalInfoCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAudiMainSearch" resultType="Long">
+    SELECT count(1) FROM esd_audit_abnormal e,
+    ( SELECT
+    t1.process_instance_id,
+    t1.task_id,
+    t1.task_state,
+    t1.workflow_business_id
+    FROM
+    task_record t1
+    INNER JOIN (
+    SELECT
+    process_instance_id,
+    max( task_id ) AS task_id,
+    assignee
+    FROM
+    task_record
+    WHERE 1=1
+    <if test="assignee != null and assignee !=''">
+      and  assignee = #{assignee}
+    </if>
+    AND template_key = 'ESDAUDIT' GROUP BY process_instance_id ) t2
+    ON t1.process_instance_id = t2.process_instance_id
+    and t1.task_id = t2.task_id
+    ) ar where e.id=ar.workflow_business_id
+    <if test='auditTypes != null and auditTypes.size > 0'>
+      AND audit_type in
+      <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='lines != null and lines.size > 0'>
+      AND line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='problemClassifications != null and problemClassifications.size > 0'>
+      AND problem_classification in
+      <foreach collection='problemClassifications' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='responsibleDepartments != null and responsibleDepartments.size > 0'>
+      AND responsible_department in
+      <foreach collection='responsibleDepartments' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='status != null and status.size > 0'>
+      AND status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != "" and startTime !=null '>
+      AND audit_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND audit_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+  </select>
+</mapper>

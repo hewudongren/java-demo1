@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.qims.dao.BlackDashBoardMapper">
+    <sql id="searchSchedule">
+        <if test="modelCategorys != null and modelCategorys.size >0">
+            and
+            <foreach collection='modelCategorys' index='index' item='item1' separator='or' open='(' close=')'>
+                model_category = #{item1}
+            </foreach>
+        </if>
+        <if test="manufactureTypes != null and manufactureTypes.size >0">
+            and
+            <foreach collection='manufactureTypes' index='index' item='item1' separator='or' open='(' close=')'>
+                manufacture_type = #{item1}
+            </foreach>
+        </if>
+        <if test="items != null and items.size >0">
+            and
+            <foreach collection='items' index='index' item='item1' separator='or' open='(' close=')'>
+                item = #{item1}
+            </foreach>
+        </if>
+        <if test="models != null and models.size >0">
+            and
+            <foreach collection='models' index='index' item='item1' separator='or' open='(' close=')'>
+                business_model = #{item1}
+            </foreach>
+        </if>
+        <if test="process != null and process.size >0">
+            and
+            <foreach collection='process' index='index' item='item1' separator='or' open='(' close=')'>
+                business_process = #{item1}
+            </foreach>
+        </if>
+        <if test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+            AND data_start_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T') and data_start_time &gt;=
+            DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+    </sql>
+
+    <sql id="searchBlack">
+        and failures_number > 29
+        <if test="modelCategorys != null and modelCategorys.size >0">
+            and
+            <foreach collection='modelCategorys' index='index' item='item1' separator='or' open='(' close=')'>
+                model_category = #{item1}
+            </foreach>
+        </if>
+        <if test="manufactureTypes != null and manufactureTypes.size >0">
+            and
+            <foreach collection='manufactureTypes' index='index' item='item1' separator='or' open='(' close=')'>
+                manufacture_type = #{item1}
+            </foreach>
+        </if>
+        <if test="items != null and items.size >0">
+            and
+            <foreach collection='items' index='index' item='item1' separator='or' open='(' close=')'>
+                item = #{item1}
+            </foreach>
+        </if>
+        <if test="models != null and models.size >0">
+            and
+            <foreach collection='models' index='index' item='item1' separator='or' open='(' close=')'>
+                business_model = #{item1}
+            </foreach>
+        </if>
+        <if test="process != null and process.size >0">
+            and
+            <foreach collection='process' index='index' item='item1' separator='or' open='(' close=')'>
+                paragraph_parting = #{item1}
+            </foreach>
+        </if>
+        <if test="defectTypes != null and defectTypes.size >0">
+            and
+            <foreach collection='defectTypes' index='index' item='item1' separator='or' open='(' close=')'>
+                defect_type = #{item1}
+            </foreach>
+        </if>
+        <if test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T') and create_date &gt;=
+            DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+    </sql>
+
+    <select id="getAllAndClose" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        CASE WHEN
+        `status` = "结案" THEN
+        'Close' ELSE 'Processing'
+        END AS type,
+        count( 1 ) total
+        FROM
+        qims_black_info
+        WHERE 1=1
+        <if test='paragraphPartings != null and paragraphPartings.size > 0'>
+            AND paragraph_parting in
+            <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY type
+    </select>
+
+    <select id="getOverdue" resultType="String">
+        SELECT
+        t.update_date
+        FROM
+        qims_black_info q
+        LEFT JOIN task_record t ON q.id = t.workflow_business_id
+        WHERE 1=1
+        <if test='paragraphPartings != null and paragraphPartings.size > 0'>
+            AND q.paragraph_parting in
+            <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  q.create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND q.create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        AND q.`status` != '结案'
+        AND t.task_state is null
+    </select>
+
+    <select id="getDashBoardCloseSum" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT ${temp} abscissa,count(1) sum
+        FROM qims_black_info
+        WHERE 1=1
+        <if test='paragraphPartings != null and paragraphPartings.size > 0'>
+            AND paragraph_parting in
+            <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY abscissa
+    </select>
+
+    <select id="getDashBoardCloseMolecule" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        ${temp} abscissa,
+        count( 1 ) sum ,
+        sum( IF ( conclusion_of_case = '及时', 1, 0 ) ) molecule
+        FROM
+        qims_black_info
+        WHERE 1=1
+        <if test='paragraphPartings != null and paragraphPartings.size > 0'>
+            AND paragraph_parting in
+            <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        AND `status` = '结案'
+        GROUP BY abscissa
+    </select>
+
+    <select id="getDashBoardNotClose" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        ${temp} abscissa,
+        CASE WHEN
+        `status` = "结案" THEN
+        'Close' ELSE 'Processing'
+        END AS type,
+        count( 1 ) sum
+        FROM
+        qims_black_info
+        WHERE 1=1
+        <if test='paragraphPartings != null and paragraphPartings.size > 0'>
+            AND paragraph_parting in
+            <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY abscissa,type
+    </select>
+
+    <select id="getUnseasonalBola" resultType="com.alibaba.fastjson.JSONObject">
+         SELECT ${type} abscissa,count(1) sum
+          FROM  qims_black_info q
+	      LEFT JOIN task_record t ON q.id = t.workflow_business_id
+	      WHERE task_name in('初步原因分析','根本原因分析','根本原因审核')
+          and t.task_state is  null
+          and ${type} is not null
+          and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+          GROUP BY abscissa
+	      ORDER BY sum desc
+    </select>
+
+    <select id="getUnseasonalList" resultType="cn.jwis.qualityworkflow.modules.qims.bean.QimsBlackInfo">
+           SELECT question_number,report_subject,problem_description,reporting_time,status,
+           current_lt,assigneer,cause_analysis_person,root_cause_analyst,root_cause_auditor,assigneer_department
+           FROM qims_black_info q
+           LEFT JOIN task_record t ON q.id = t.workflow_business_id
+           WHERE task_name in('初步原因分析','根本原因分析','根本原因审核')
+           and t.task_state is  null
+           and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+           order  by q.create_date desc
+        <if test="page != null and size != null">
+            Limit #{page},#{size}
+        </if>
+    </select>
+
+    <select id="getUnseasonalCount" resultType="Long">
+           SELECT count(1)
+            FROM qims_black_info q
+            LEFT JOIN task_record t ON q.id = t.workflow_business_id
+            WHERE task_name in('初步原因分析','根本原因分析','根本原因审核')
+            and t.task_state is  null
+            and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+    </select>
+
+    <select id="getBlackDetails" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+	    t.assignee,
+	    t.task_name,
+	    t.create_date,
+	    t.update_date,
+	    t.task_state
+        FROM
+	    qims_black_info q
+	    LEFT JOIN task_record t ON q.id = t.workflow_business_id
+	    WHERE task_name in('初步原因分析','根本原因分析','根本原因审核')
+        and t.task_state is not null
+	    <if test="department != null and department != ''">
+          and  t.department =#{department}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and q.create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and q.create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        order by q.reporting_time desc
+    </select>
+
+    <select id="getBatchProblem" resultType="com.alibaba.fastjson.JSONObject" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.BlackDashSearch">
+    SELECT
+	a.paragraph_parting process,
+	a.abscissa,
+	a.molecule,
+	b.sum,
+	IFNULL(
+	ROUND (
+	(IFNULL( a.molecule, 0 )/IFNULL( b.sum, 0 )) * 100,2 ),
+	"-"
+	) rate
+   FROM
+      (
+    SELECT
+	paragraph_parting,
+	${temp} abscissa,
+	count( 1 ) molecule
+    FROM
+	qims_black_info
+	where  1=1  <include refid="searchBlack"/>
+    GROUP BY
+    abscissa,
+	paragraph_parting
+    order by paragraph_parting,abscissa
+	) a
+	LEFT JOIN (
+    SELECT
+	business_process,
+    ${temp} abscissa,
+	count(DISTINCT schedule_code) sum
+    FROM
+	t_production_schedule
+    where  1=1  <include refid="searchSchedule"/>
+    GROUP BY abscissa,business_process
+    order by business_process,abscissa
+        ) b ON a.abscissa = b.abscissa AND
+    IF ( a.paragraph_parting = 'SMT'|| a.paragraph_parting = 'TEST', 'FE', a.paragraph_parting ) = b.business_process
+
+    </select>
+
+    <select id="exportBatchProblem" resultType="cn.jwis.qualityworkflow.modules.qims.bean.QimsBlackInfo" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.BlackDashSearch">
+        SELECT
+           *
+        FROM
+        qims_black_info
+        where  1=1  <include refid="searchBlack"/>
+    </select>
+</mapper>

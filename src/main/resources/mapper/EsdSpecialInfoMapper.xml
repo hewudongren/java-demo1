@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdSpecialInfoMapper">
+
+    <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialInfo">
+    insert into esd_special_info (id, sample_name, supplier, 
+      model, materials, sampling_method, 
+      sampling_rate, ambient_temperature, checker, 
+      ambient_humidity, handling_method, remarks, 
+      status,treatment_conclusion,disposal_results,
+      delivered_qty, sampling_qty,special_applicant,
+      inspection_date, specification_model, acceptance_rate, 
+      special_mining_no, demand_department, demand_proposer, 
+      demand_date, special_mining_measures, exception_description, 
+      special_reasons, short_treatment_measures, 
+      long_treatment_measures, department_treatment_measures, 
+      long_improvement_measures, department_auditor, 
+      esd_handler, esd_handling_comments, esd_coordinator, 
+      esd_handling_date, esd_coordinat_result, 
+      esd_coordinat_opinion, committee_auditor, 
+      esd_coordinat_date, handling_comments, department_audit_opinion, 
+      department_audit_date, audit_results, committee_audit_opinion, 
+      committee_audit_date, verification_of_results, 
+      special_procurement_date,assigneer,assigneer_department,
+      qualified_qty,final_result
+      )
+    values (#{id,jdbcType=VARCHAR}, #{sampleName,jdbcType=VARCHAR}, #{supplier,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{materials,jdbcType=VARCHAR}, #{samplingMethod,jdbcType=VARCHAR}, 
+      #{samplingRate,jdbcType=VARCHAR}, #{ambientTemperature,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, 
+      #{ambientHumidity,jdbcType=VARCHAR}, #{handlingMethod,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{treatmentConclusion,jdbcType=VARCHAR}, #{disposalResults,jdbcType=VARCHAR},
+      #{deliveredQty,jdbcType=INTEGER}, #{samplingQty,jdbcType=INTEGER}, #{specialApplicant,jdbcType=INTEGER},
+      #{inspectionDate,jdbcType=TIMESTAMP}, #{specificationModel,jdbcType=VARCHAR}, #{acceptanceRate,jdbcType=REAL}, 
+      #{specialMiningNo,jdbcType=VARCHAR}, #{demandDepartment,jdbcType=VARCHAR}, #{demandProposer,jdbcType=VARCHAR}, 
+      #{demandDate,jdbcType=TIMESTAMP}, #{specialMiningMeasures,jdbcType=VARCHAR}, #{exceptionDescription,jdbcType=VARCHAR}, 
+      #{specialReasons,jdbcType=VARCHAR}, #{shortTreatmentMeasures,jdbcType=VARCHAR}, 
+      #{longTreatmentMeasures,jdbcType=VARCHAR}, #{departmentTreatmentMeasures,jdbcType=VARCHAR}, 
+      #{longImprovementMeasures,jdbcType=VARCHAR}, #{departmentAuditor,jdbcType=VARCHAR}, 
+      #{esdHandler,jdbcType=VARCHAR}, #{esdHandlingComments,jdbcType=VARCHAR}, #{esdCoordinator,jdbcType=VARCHAR}, 
+      #{esdHandlingDate,jdbcType=TIMESTAMP}, #{esdCoordinatResult,jdbcType=VARCHAR}, 
+      #{esdCoordinatOpinion,jdbcType=VARCHAR}, #{committeeAuditor,jdbcType=VARCHAR}, 
+      #{esdCoordinatDate,jdbcType=TIMESTAMP}, #{handlingComments,jdbcType=VARCHAR}, #{departmentAuditOpinion,jdbcType=VARCHAR}, 
+      #{departmentAuditDate,jdbcType=TIMESTAMP}, #{auditResults,jdbcType=VARCHAR}, #{committeeAuditOpinion,jdbcType=VARCHAR}, 
+      #{committeeAuditDate,jdbcType=TIMESTAMP}, #{verificationOfResults,jdbcType=VARCHAR}, 
+      #{specialProcurementDate,jdbcType=TIMESTAMP},#{assigneer,jdbcType=VARCHAR},
+      #{assigneerDepartment,jdbcType=VARCHAR},#{qualifiedQty},#{finalResult}
+      )
+  </insert>
+
+    <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialInfo">
+    update esd_special_info
+    set sample_name = #{sampleName,jdbcType=VARCHAR},
+      supplier = #{supplier,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      materials = #{materials,jdbcType=VARCHAR},
+      sampling_method = #{samplingMethod,jdbcType=VARCHAR},
+      sampling_rate = #{samplingRate,jdbcType=VARCHAR},
+      ambient_temperature = #{ambientTemperature,jdbcType=VARCHAR},
+      checker = #{checker,jdbcType=VARCHAR},
+      ambient_humidity = #{ambientHumidity,jdbcType=VARCHAR},
+      handling_method = #{handlingMethod,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      treatment_conclusion = #{treatmentConclusion,jdbcType=VARCHAR},
+      disposal_results = #{disposalResults,jdbcType=VARCHAR},
+      delivered_qty = #{deliveredQty,jdbcType=INTEGER},
+      sampling_qty = #{samplingQty,jdbcType=INTEGER},
+      special_applicant = #{specialApplicant,jdbcType=INTEGER},
+      inspection_date = #{inspectionDate,jdbcType=TIMESTAMP},
+      specification_model = #{specificationModel,jdbcType=VARCHAR},
+      acceptance_rate = #{acceptanceRate,jdbcType=REAL},
+      special_mining_no = #{specialMiningNo,jdbcType=VARCHAR},
+      demand_department = #{demandDepartment,jdbcType=VARCHAR},
+      demand_proposer = #{demandProposer,jdbcType=VARCHAR},
+      demand_date = #{demandDate,jdbcType=TIMESTAMP},
+      special_mining_measures = #{specialMiningMeasures,jdbcType=VARCHAR},
+      exception_description = #{exceptionDescription,jdbcType=VARCHAR},
+      special_reasons = #{specialReasons,jdbcType=VARCHAR},
+      short_treatment_measures = #{shortTreatmentMeasures,jdbcType=VARCHAR},
+      long_treatment_measures = #{longTreatmentMeasures,jdbcType=VARCHAR},
+      department_treatment_measures = #{departmentTreatmentMeasures,jdbcType=VARCHAR},
+      long_improvement_measures = #{longImprovementMeasures,jdbcType=VARCHAR},
+      department_auditor = #{departmentAuditor,jdbcType=VARCHAR},
+      esd_handler = #{esdHandler,jdbcType=VARCHAR},
+      esd_handling_comments = #{esdHandlingComments,jdbcType=VARCHAR},
+      esd_coordinator = #{esdCoordinator,jdbcType=VARCHAR},
+      esd_handling_date = #{esdHandlingDate,jdbcType=TIMESTAMP},
+      esd_coordinat_result = #{esdCoordinatResult,jdbcType=VARCHAR},
+      esd_coordinat_opinion = #{esdCoordinatOpinion,jdbcType=VARCHAR},
+      committee_auditor = #{committeeAuditor,jdbcType=VARCHAR},
+      esd_coordinat_date = #{esdCoordinatDate,jdbcType=TIMESTAMP},
+      handling_comments = #{handlingComments,jdbcType=VARCHAR},
+      department_audit_opinion = #{departmentAuditOpinion,jdbcType=VARCHAR},
+      department_audit_date = #{departmentAuditDate,jdbcType=TIMESTAMP},
+      audit_results = #{auditResults,jdbcType=VARCHAR},
+      committee_audit_opinion = #{committeeAuditOpinion,jdbcType=VARCHAR},
+      committee_audit_date = #{committeeAuditDate,jdbcType=TIMESTAMP},
+      verification_of_results = #{verificationOfResults,jdbcType=VARCHAR},
+      special_procurement_date = #{specialProcurementDate,jdbcType=TIMESTAMP},
+      assigneer = #{assigneer},
+      assigneer_department = #{assigneerDepartment},
+      qualified_qty = #{qualifiedQty},
+      final_result = #{finalResult}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <select id="getEsdSpecialList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialInfo">
+        select e.*,ar.process_instance_id,ar.task_id,ar.task_state,ar.workflow_business_id  FROM esd_special_info e,
+        ( SELECT
+        t1.process_instance_id,
+        t1.task_id,
+        t1.task_state,
+        t1.workflow_business_id
+        FROM
+        task_record t1
+        INNER JOIN (
+        SELECT
+        process_instance_id,
+        max( task_id ) AS task_id,
+        assignee
+        FROM
+        task_record
+        WHERE 1=1
+        <if test="assignee != null and assignee !=''">
+            and  assignee = #{assignee}
+        </if>
+        AND template_key = 'ESDACCEPT' GROUP BY process_instance_id ) t2
+        ON t1.process_instance_id = t2.process_instance_id
+        and t1.task_id = t2.task_id
+        ) ar where e.id=ar.workflow_business_id
+        <if test='sampleNames != null and sampleNames.size > 0'>
+            AND sample_name in
+            <foreach collection='sampleNames' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='suppliers != null and suppliers.size > 0'>
+            AND supplier in
+            <foreach collection='suppliers' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='models != null and models.size > 0'>
+            AND model in
+            <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='materials != null and materials.size > 0'>
+            AND materials in
+            <foreach collection='materials' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='demandDepartments != null and demandDepartments.size > 0'>
+            AND demand_department in
+            <foreach collection='demandDepartments' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='treatmentConclusions != null and treatmentConclusions.size > 0'>
+            AND treatment_conclusion in
+            <foreach collection='treatmentConclusions' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND special_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND special_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        order by special_date desc
+        <if test="page != null and size != null">
+            Limit #{page},#{size}
+        </if>
+    </select>
+
+    <select id="getEsdSpecialListCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSpecialSearch" resultType="Long">
+        select count(1)  FROM esd_special_info e,
+        ( SELECT
+        t1.process_instance_id,
+        t1.task_id,
+        t1.task_state,
+        t1.workflow_business_id
+        FROM
+        task_record t1
+        INNER JOIN (
+        SELECT
+        process_instance_id,
+        max( task_id ) AS task_id,
+        assignee
+        FROM
+        task_record
+        WHERE 1=1
+        <if test="assignee != null and assignee !=''">
+            and  assignee = #{assignee}
+        </if>
+        AND template_key = 'ESDACCEPT' GROUP BY process_instance_id ) t2
+        ON t1.process_instance_id = t2.process_instance_id
+        and t1.task_id = t2.task_id
+        ) ar where e.id=ar.workflow_business_id
+        <if test='sampleNames != null and sampleNames.size > 0'>
+            AND sample_name in
+            <foreach collection='sampleNames' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='suppliers != null and suppliers.size > 0'>
+            AND supplier in
+            <foreach collection='suppliers' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='models != null and models.size > 0'>
+            AND model in
+            <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='materials != null and materials.size > 0'>
+            AND materials in
+            <foreach collection='materials' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='demandDepartments != null and demandDepartments.size > 0'>
+            AND demand_department in
+            <foreach collection='demandDepartments' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='treatmentConclusions != null and treatmentConclusions.size > 0'>
+            AND treatment_conclusion in
+            <foreach collection='treatmentConclusions' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND special_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND special_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+    </select>
+</mapper>

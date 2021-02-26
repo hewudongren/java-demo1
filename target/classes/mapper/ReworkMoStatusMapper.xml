@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.rework.dao.ReworkMoStatusMapper">
+    <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.rework.bean.ReworkMoStatus">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="rework_id" jdbcType="VARCHAR" property="reworkId" />
+        <result column="rework_mo" jdbcType="VARCHAR" property="reworkMo" />
+        <result column="hold_status" jdbcType="VARCHAR" property="holdStatus" />
+        <result column="creator" jdbcType="VARCHAR" property="creator" />
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    </resultMap>
+
+    <select id="getByReworkId" resultMap="BaseResultMap">
+        select * from rework_mo_status where rework_id = #{reworkId}
+    </select>
+
+    <select id="getById" resultMap="BaseResultMap">
+        select * from rework_mo_status where id = #{id}
+    </select>
+</mapper>

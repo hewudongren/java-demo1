@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>template</title>
+    <style type='text/css'>
+        html {
+            font-size: 14px;
+            overflow-x: initial !important;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            font-size: 1rem;
+            line-height: 1.42857143;
+        }
+
+        #title {
+            padding: 10px 10px 10px 30px;
+        }
+
+        #title,
+        ul {
+            list-style-type: none;
+        }
+
+        #title,
+        ul,
+        li {
+            text-align: left;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 6px 12px;
+        }
+
+        .black {
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .bisque{
+            background-color:bisque;
+        }
+        .chocolate{
+            background-color:rgb(223, 166, 93);
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="title">
+    <p>Dear <span th:text="${account}"></span>:</p >
+    <p><br></p >
+    <p>您有一单APQP单据(<a th:href="${url}"><span th:text="${questionNumber}"></span></a></span>)待处理。</p >
+    <table>
+        <tr>
+            <td class="black bisque">段別: </td>
+            <td colspan="2" class="black yellow"><span th:text="${engPhase}"></span>段</td>
+        </tr>
+
+        <tr>
+            <td class="black bisque">Function team: </td>
+            <td class="chocolate"><span th:text="${engPhase}"></span> ENG</td>
+            <td class="chocolate"><span th:text="${engPhase}"></span>质量</td>
+        </tr>
+
+        <tr>
+            <td class="black bisque">Owner</td>
+            <td><span th:text="${engOwner}"></span></td>
+            <td><span th:text="${qeOwner}"></span></td>
+        </tr>
+
+        <tr>
+            <td class="black bisque">需上传文件</td>
+            <td><span th:text="${engFile}"></span></td>
+            <td><span th:text="${qeFile}"></span></td>
+        </tr>
+
+        <tr>
+            <td class="black bisque">状态</td>
+            <td><span th:text="${engStatus}"></span></td>
+            <td><span th:text="${qeStatus}"></span></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.qims.dao.CqaDashBoardMapper">
+
+    <select id="getAllAndClose" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        CASE WHEN
+        `status` = "结案" THEN
+        'Close' ELSE 'Processing'
+        END AS type,
+        count( 1 ) total
+        FROM
+        qims_cqa_info
+        WHERE 1=1
+        <if test='startTime != "" and startTime !=null '>
+            AND  reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY type
+    </select>
+
+    <select id="getOverdue" resultType="String">
+        SELECT
+        t.update_date
+        FROM
+        qims_cqa_info q
+        LEFT JOIN task_record t ON q.id = t.workflow_business_id
+        WHERE 1=1
+        <if test='startTime != "" and startTime !=null '>
+            AND  q.reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND q.reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+        </if>
+        AND q.`status` != '结案'
+        AND t.task_state is null
+    </select>
+
+    <select id="getDashBoardCloseSum" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT ${temp} abscissa,count(1) sum
+        FROM qims_cqa_info
+        WHERE 1=1
+        <if test='startTime != "" and startTime !=null '>
+            AND  reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY abscissa
+    </select>
+
+    <select id="getDashBoardCloseMolecule" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        ${temp} abscissa,
+        count( 1 ) sum ,
+        sum( IF ( conclusion_of_case = '及时', 1, 0 ) ) molecule
+        FROM
+        qims_cqa_info
+        WHERE 1=1
+        <if test='startTime != "" and startTime !=null '>
+            AND  reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        AND `status` = '结案'
+        GROUP BY abscissa
+    </select>
+
+    <select id="getDashBoardNotClose" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+        ${temp} abscissa,
+        CASE WHEN
+        `status` = "结案" THEN
+        'Close' ELSE 'Processing'
+        END AS type,
+        count( 1 ) sum
+        FROM
+        qims_cqa_info
+        WHERE 1=1
+        <if test='startTime != "" and startTime !=null '>
+            AND  reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        GROUP BY abscissa,type
+    </select>
+
+    <select id="getUnseasonalBola" resultType="com.alibaba.fastjson.JSONObject">
+          SELECT ${type} abscissa,count( 1 ) sum
+          FROM qims_cqa_info q
+          LEFT JOIN task_record t ON q.id = t.workflow_business_id
+	      WHERE task_name in('初步原因分析','根本原因分析','根本原因审核','风险评估')
+          and t.task_state is  null
+          and ${type} is not null
+          and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+          GROUP BY abscissa
+	      ORDER BY sum desc
+    </select>
+
+    <select id="getUnseasonalList" resultType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaInfo">
+           SELECT question_number,report_subject,problem_description,reporting_time,status,risk_assessor,
+           current_lt,assigneer,cause_analysis_person,root_cause_analyst,root_cause_auditor,assigneer_department
+            FROM qims_cqa_info q
+            LEFT JOIN task_record t ON q.id = t.workflow_business_id
+            WHERE task_name in('初步原因分析','根本原因分析','根本原因审核','风险评估')
+            and t.task_state is  null
+            and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+            order  by q.reporting_time desc
+        <if test="page != null and size != null">
+            Limit #{page},#{size}
+        </if>
+    </select>
+
+    <select id="getUnseasonalCount" resultType="Long">
+          SELECT count(1)
+          FROM qims_cqa_info q
+          LEFT JOIN task_record t ON q.id = t.workflow_business_id
+	      WHERE task_name in('初步原因分析','根本原因分析','根本原因审核','风险评估')
+          and t.task_state is  null
+          and DATE_SUB(t.update_date,INTERVAL 1 DAY) &lt; NOW()
+    </select>
+
+    <select id="getBlackDetails" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+	    t.assignee,
+	    t.task_name,
+	    t.create_date,
+	    t.update_date,
+	    t.task_state
+        FROM
+	    qims_cqa_info q
+	    LEFT JOIN task_record t ON q.id = t.workflow_business_id
+	    WHERE task_name in('初步原因分析','根本原因分析','根本原因审核','风险评估')
+        and t.task_state is not null
+	    <if test="department != null and department != ''">
+          and  t.department =#{department}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and q.reporting_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and q.reporting_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        order by q.reporting_time desc
+    </select>
+</mapper>

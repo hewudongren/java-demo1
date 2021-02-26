@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.qims.dao.QimsCqaInfoMapper">
+
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaInfo">
+    insert into qims_cqa_info (id, conclusion_of_case, question_number, 
+      problem_type, current_lt,
+      status, report_subject, anomaly_site, 
+      anomaly_reporter,line,imel_track_id,
+      model, frequency, schedule_sn, 
+      schedule_qty, inspection_qty, failures_number, 
+      failure_rate, problem_description, abnormal_department, 
+      abnormal_responsible_person,group_leader, crew,
+      assessment_result, basis_for_assessment, quality_technician, 
+      batch_rework_quantity, rework_results, risk_assessment_results, 
+      rework_frozen_quantity, rework_completion_time, 
+      is_stop, stop_line_because, second_sampling_quantity, 
+      sampling_inspection_results, risk_assessor, 
+      evaluate_time, primary_cause, preliminary_leakage_causes, 
+      preliminary_analysis_conclusion, defect_type, 
+      temporary_disposal_measures, interim_disposal_advice, 
+      root_cause_department, root_cause_analyst, 
+      cause_analysis_person, cause_analysis_time, 
+      root_cause, root_causes_leak_out, fundamental_analysis_conclusion, 
+      long_term_treatment1, long_term_treatment2, 
+      long_term_treatment3, long_term_treatment4, 
+      long_term_treatment5, root_cause_analyster, 
+      root_cause_time, handling_comments, root_cause_analysis_audit_opinion, 
+      root_cause_auditor, root_cause_analysis_time, 
+      effect_verification_conclusion, effect_verification_results, 
+      effect_verifier, effect_verification_time, 
+      audit_results, effect_audit_opinion, effect_reviewer, 
+      effect_review_time, case_closing_result, 
+      case_closing_opinion, case_closing_approver, 
+      case_closing_date, preliminary_cause_analysis_lt, 
+      root_cause_analysis_lt, root_cause_audit_lt, 
+      item_number,business_datetime,assigneer,assigneer_department,reporting_time)
+    values (#{id,jdbcType=VARCHAR}, #{conclusionOfCase,jdbcType=VARCHAR}, #{questionNumber,jdbcType=VARCHAR}, 
+      #{problemType,jdbcType=VARCHAR}, #{currentLt,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR}, #{reportSubject,jdbcType=VARCHAR}, #{anomalySite,jdbcType=VARCHAR}, 
+      #{anomalyReporter,jdbcType=VARCHAR},  #{line,jdbcType=VARCHAR}, #{imelTrackID,jdbcType=VARCHAR},
+      #{model,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, #{scheduleSn,jdbcType=VARCHAR}, 
+      #{scheduleQty,jdbcType=INTEGER}, #{inspectionQty,jdbcType=INTEGER}, #{failuresNumber,jdbcType=INTEGER}, 
+      #{failureRate,jdbcType=REAL}, #{problemDescription,jdbcType=VARCHAR}, #{abnormalDepartment,jdbcType=VARCHAR}, 
+      #{abnormalResponsiblePerson,jdbcType=VARCHAR},
+      #{groupLeader,jdbcType=VARCHAR}, #{crew,jdbcType=VARCHAR},
+      #{assessmentResult,jdbcType=VARCHAR}, #{basisForAssessment,jdbcType=VARCHAR}, #{qualityTechnician,jdbcType=VARCHAR}, 
+      #{batchReworkQuantity,jdbcType=REAL}, #{reworkResults,jdbcType=VARCHAR}, #{riskAssessmentResults,jdbcType=VARCHAR}, 
+      #{reworkFrozenQuantity,jdbcType=REAL}, #{reworkCompletionTime,jdbcType=TIMESTAMP}, 
+      #{isStop,jdbcType=VARCHAR}, #{stopLineBecause,jdbcType=VARCHAR}, #{secondSamplingQuantity,jdbcType=REAL}, 
+      #{samplingInspectionResults,jdbcType=VARCHAR}, #{riskAssessor,jdbcType=VARCHAR}, 
+      #{evaluateTime,jdbcType=TIMESTAMP}, #{primaryCause,jdbcType=VARCHAR}, #{preliminaryLeakageCauses,jdbcType=VARCHAR}, 
+      #{preliminaryAnalysisConclusion,jdbcType=VARCHAR}, #{defectType,jdbcType=VARCHAR}, 
+      #{temporaryDisposalMeasures,jdbcType=VARCHAR}, #{interimDisposalAdvice,jdbcType=VARCHAR}, 
+      #{rootCauseDepartment,jdbcType=VARCHAR}, #{rootCauseAnalyst,jdbcType=VARCHAR}, 
+      #{causeAnalysisPerson,jdbcType=VARCHAR}, #{causeAnalysisTime,jdbcType=TIMESTAMP}, 
+      #{rootCause,jdbcType=VARCHAR}, #{rootCausesLeakOut,jdbcType=VARCHAR}, #{fundamentalAnalysisConclusion,jdbcType=VARCHAR}, 
+      #{longTermTreatment1,jdbcType=VARCHAR}, #{longTermTreatment2,jdbcType=VARCHAR}, 
+      #{longTermTreatment3,jdbcType=VARCHAR}, #{longTermTreatment4,jdbcType=VARCHAR}, 
+      #{longTermTreatment5,jdbcType=VARCHAR}, #{rootCauseAnalyster,jdbcType=VARCHAR}, 
+      #{rootCauseTime,jdbcType=TIMESTAMP}, #{handlingComments,jdbcType=VARCHAR}, #{rootCauseAnalysisAuditOpinion,jdbcType=VARCHAR}, 
+      #{rootCauseAuditor,jdbcType=VARCHAR}, #{rootCauseAnalysisTime,jdbcType=TIMESTAMP}, 
+      #{effectVerificationConclusion,jdbcType=VARCHAR}, #{effectVerificationResults,jdbcType=VARCHAR}, 
+      #{effectVerifier,jdbcType=VARCHAR}, #{effectVerificationTime,jdbcType=TIMESTAMP}, 
+      #{auditResults,jdbcType=VARCHAR}, #{effectAuditOpinion,jdbcType=VARCHAR}, #{effectReviewer,jdbcType=VARCHAR}, 
+      #{effectReviewTime,jdbcType=TIMESTAMP}, #{caseClosingResult,jdbcType=VARCHAR}, 
+      #{caseClosingOpinion,jdbcType=VARCHAR}, #{caseClosingApprover,jdbcType=VARCHAR}, 
+      #{caseClosingDate,jdbcType=TIMESTAMP}, #{preliminaryCauseAnalysisLt,jdbcType=VARCHAR}, 
+      #{rootCauseAnalysisLt,jdbcType=VARCHAR}, #{rootCauseAuditLt,jdbcType=VARCHAR}, 
+      #{itemNumber,jdbcType=VARCHAR},#{businessDatetime},#{assigneer},#{assigneerDepartment},#{reportingTime})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaInfo">
+    update qims_cqa_info
+    set conclusion_of_case = #{conclusionOfCase,jdbcType=VARCHAR},
+      question_number = #{questionNumber,jdbcType=VARCHAR},
+      problem_type = #{problemType,jdbcType=VARCHAR},
+      current_lt = #{currentLt,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      report_subject = #{reportSubject,jdbcType=VARCHAR},
+      anomaly_site = #{anomalySite,jdbcType=VARCHAR},
+      anomaly_reporter = #{anomalyReporter,jdbcType=VARCHAR},
+      line = #{line,jdbcType=VARCHAR},
+      imel_track_id = #{imelTrackID,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      frequency = #{frequency,jdbcType=VARCHAR},
+      schedule_sn = #{scheduleSn,jdbcType=VARCHAR},
+      schedule_qty = #{scheduleQty,jdbcType=INTEGER},
+      inspection_qty = #{inspectionQty,jdbcType=INTEGER},
+      failures_number = #{failuresNumber,jdbcType=INTEGER},
+      failure_rate = #{failureRate,jdbcType=REAL},
+      problem_description = #{problemDescription,jdbcType=VARCHAR},
+      abnormal_department = #{abnormalDepartment,jdbcType=VARCHAR},
+      abnormal_responsible_person = #{abnormalResponsiblePerson,jdbcType=VARCHAR},
+      group_leader = #{groupLeader,jdbcType=VARCHAR},
+      crew = #{crew,jdbcType=VARCHAR},
+      assessment_result = #{assessmentResult,jdbcType=VARCHAR},
+      basis_for_assessment = #{basisForAssessment,jdbcType=VARCHAR},
+      quality_technician = #{qualityTechnician,jdbcType=VARCHAR},
+      batch_rework_quantity = #{batchReworkQuantity,jdbcType=REAL},
+      rework_results = #{reworkResults,jdbcType=VARCHAR},
+      risk_assessment_results = #{riskAssessmentResults,jdbcType=VARCHAR},
+      rework_frozen_quantity = #{reworkFrozenQuantity,jdbcType=REAL},
+      rework_completion_time = #{reworkCompletionTime,jdbcType=TIMESTAMP},
+      is_stop = #{isStop,jdbcType=VARCHAR},
+      stop_line_because = #{stopLineBecause,jdbcType=VARCHAR},
+      second_sampling_quantity = #{secondSamplingQuantity,jdbcType=REAL},
+      sampling_inspection_results = #{samplingInspectionResults,jdbcType=VARCHAR},
+      risk_assessor = #{riskAssessor,jdbcType=VARCHAR},
+      evaluate_time = #{evaluateTime,jdbcType=TIMESTAMP},
+      primary_cause = #{primaryCause,jdbcType=VARCHAR},
+      preliminary_leakage_causes = #{preliminaryLeakageCauses,jdbcType=VARCHAR},
+      preliminary_analysis_conclusion = #{preliminaryAnalysisConclusion,jdbcType=VARCHAR},
+      defect_type = #{defectType,jdbcType=VARCHAR},
+      temporary_disposal_measures = #{temporaryDisposalMeasures,jdbcType=VARCHAR},
+      interim_disposal_advice = #{interimDisposalAdvice,jdbcType=VARCHAR},
+      root_cause_department = #{rootCauseDepartment,jdbcType=VARCHAR},
+      root_cause_analyst = #{rootCauseAnalyst,jdbcType=VARCHAR},
+      cause_analysis_person = #{causeAnalysisPerson,jdbcType=VARCHAR},
+      cause_analysis_time = #{causeAnalysisTime,jdbcType=TIMESTAMP},
+      root_cause = #{rootCause,jdbcType=VARCHAR},
+      root_causes_leak_out = #{rootCausesLeakOut,jdbcType=VARCHAR},
+      fundamental_analysis_conclusion = #{fundamentalAnalysisConclusion,jdbcType=VARCHAR},
+      long_term_treatment1 = #{longTermTreatment1,jdbcType=VARCHAR},
+      long_term_treatment2 = #{longTermTreatment2,jdbcType=VARCHAR},
+      long_term_treatment3 = #{longTermTreatment3,jdbcType=VARCHAR},
+      long_term_treatment4 = #{longTermTreatment4,jdbcType=VARCHAR},
+      long_term_treatment5 = #{longTermTreatment5,jdbcType=VARCHAR},
+      root_cause_analyster = #{rootCauseAnalyster,jdbcType=VARCHAR},
+      root_cause_time = #{rootCauseTime,jdbcType=TIMESTAMP},
+      handling_comments = #{handlingComments,jdbcType=VARCHAR},
+      root_cause_analysis_audit_opinion = #{rootCauseAnalysisAuditOpinion,jdbcType=VARCHAR},
+      root_cause_auditor = #{rootCauseAuditor,jdbcType=VARCHAR},
+      root_cause_analysis_time = #{rootCauseAnalysisTime,jdbcType=TIMESTAMP},
+      effect_verification_conclusion = #{effectVerificationConclusion,jdbcType=VARCHAR},
+      effect_verification_results = #{effectVerificationResults,jdbcType=VARCHAR},
+      effect_verifier = #{effectVerifier,jdbcType=VARCHAR},
+      effect_verification_time = #{effectVerificationTime,jdbcType=TIMESTAMP},
+      audit_results = #{auditResults,jdbcType=VARCHAR},
+      effect_audit_opinion = #{effectAuditOpinion,jdbcType=VARCHAR},
+      effect_reviewer = #{effectReviewer,jdbcType=VARCHAR},
+      effect_review_time = #{effectReviewTime,jdbcType=TIMESTAMP},
+      case_closing_result = #{caseClosingResult,jdbcType=VARCHAR},
+      case_closing_opinion = #{caseClosingOpinion,jdbcType=VARCHAR},
+      case_closing_approver = #{caseClosingApprover,jdbcType=VARCHAR},
+      case_closing_date = #{caseClosingDate,jdbcType=TIMESTAMP},
+      preliminary_cause_analysis_lt = #{preliminaryCauseAnalysisLt,jdbcType=VARCHAR},
+      root_cause_analysis_lt = #{rootCauseAnalysisLt,jdbcType=VARCHAR},
+      root_cause_audit_lt = #{rootCauseAuditLt,jdbcType=VARCHAR},
+      item_number = #{itemNumber,jdbcType=VARCHAR},
+      assigneer = #{assigneer,jdbcType=VARCHAR},
+      assigneer_department = #{assigneerDepartment,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getQimsCqaInfoList" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaSearch" resultType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaInfo">
+    select e.*,ar.process_instance_id,ar.task_id,ar.task_state,ar.workflow_business_id  FROM qims_cqa_info e,
+    ( SELECT
+    t1.process_instance_id,
+    t1.task_id,
+    t1.task_state,
+    t1.workflow_business_id
+    FROM
+    task_record t1
+    INNER JOIN (
+    SELECT
+    process_instance_id,
+    max( task_id ) AS task_id,
+    assignee
+    FROM
+    task_record
+    WHERE  1=1
+    <if test="assignee != null and assignee !=''">
+      and  assignee = #{assignee}
+    </if>
+    AND template_key = 'QIMSCQA' GROUP BY process_instance_id ) t2
+    ON t1.process_instance_id = t2.process_instance_id
+    and t1.task_id = t2.task_id
+    ) ar where e.id=ar.workflow_business_id
+    <if test='anomalySites != null and anomalySites.size > 0'>
+      AND anomaly_site  in
+      <foreach collection='anomalySites' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='lines != null and lines.size > 0'>
+      AND line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='scheduleSns != null and scheduleSns.size > 0'>
+      AND schedule_sn in
+      <foreach collection='scheduleSns' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='models != null and models.size > 0'>
+      AND model in
+      <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='imelTrackIDs  != null and imelTrackIDs.size > 0'>
+      AND imel_track_id  in
+      <foreach collection='imelTrackIDs' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='questionNumbers  != null and questionNumbers.size > 0'>
+      AND question_number  in
+      <foreach collection='questionNumbers' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='status != null and status.size > 0'>
+      AND status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='isStop != null and isStop.size > 0'>
+      AND is_stop in
+      <foreach collection='isStop' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != "" and startTime !=null'>
+      AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+    order  by create_date desc
+    <if test="page != null and size != null">
+      Limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getQimsCqaInfoListCount" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsCqaSearch" resultType="Long">
+    select count(1)  FROM qims_cqa_info e,
+    ( SELECT
+    t1.process_instance_id,
+    t1.task_id,
+    t1.task_state,
+    t1.workflow_business_id
+    FROM
+    task_record t1
+    INNER JOIN (
+    SELECT
+    process_instance_id,
+    max( task_id ) AS task_id,
+    assignee
+    FROM
+    task_record
+    WHERE 1=1
+    <if test="assignee != null and assignee !=''">
+      and  assignee = #{assignee}
+    </if>
+    AND template_key = 'QIMSCQA' GROUP BY process_instance_id ) t2
+    ON t1.process_instance_id = t2.process_instance_id
+    and t1.task_id = t2.task_id
+    ) ar where e.id=ar.workflow_business_id
+    <if test='anomalySites != null and anomalySites.size > 0'>
+      AND anomaly_site  in
+      <foreach collection='anomalySites' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='lines != null and lines.size > 0'>
+      AND line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='scheduleSns != null and scheduleSns.size > 0'>
+      AND schedule_sn in
+      <foreach collection='scheduleSns' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='models != null and models.size > 0'>
+      AND model in
+      <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='imelTrackIDs  != null and imelTrackIDs.size > 0'>
+      AND imel_track_id  in
+      <foreach collection='imelTrackIDs' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='questionNumbers  != null and questionNumbers.size > 0'>
+      AND question_number  in
+      <foreach collection='questionNumbers' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='status != null and status.size > 0'>
+      AND status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='isStop != null and isStop.size > 0'>
+      AND is_stop in
+      <foreach collection='isStop' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != "" and startTime !=null'>
+      AND  e.create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND e.create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+  </select>
+
+  <update id="updateCqaInfo">
+    update  t_cqa_detail
+    set man = #{man},
+    machine = #{machine},
+    material = #{material},
+    method = #{method},
+    environment = #{environment}
+    where 1=1
+    <if test='list != null and list.size > 0'>
+      AND serial_number  in
+      <foreach collection='list' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+  </update>
+</mapper>

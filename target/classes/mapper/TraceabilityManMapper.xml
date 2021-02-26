@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.traceablity.dao.TraceabilityManMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.traceablity.bean.TraceabilityMan">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="employee_num" jdbcType="VARCHAR" property="employeeNum" />
+    <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+    <result column="entry_date" jdbcType="VARCHAR" property="entryDate" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="job_name" jdbcType="VARCHAR" property="jobName" />
+    <result column="employee_status" jdbcType="VARCHAR" property="employeeStatus" />
+    <result column="hireling_type" jdbcType="VARCHAR" property="hirelingType" />
+    <result column="keyJob" jdbcType="VARCHAR" property="keyjob" />
+    <result column="shift_leader" jdbcType="INTEGER" property="shiftLeader" />
+    <result column="team" jdbcType="VARCHAR" property="team" />
+    <result column="Job_skills" jdbcType="VARCHAR" property="jobSkills" />
+    <result column="certification_result" jdbcType="VARCHAR" property="certificationResult" />
+    <result column="cerEffective_cycle" jdbcType="VARCHAR" property="cereffectiveCycle" />
+    <result column="cerEffective_from" jdbcType="VARCHAR" property="cereffectiveFrom" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="process" jdbcType="VARCHAR" property="process" />
+    <result column="line" jdbcType="VARCHAR" property="line" />
+  </resultMap>
+  <select id="getTraceabilityManList" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityManVo" resultMap="BaseResultMap">
+    select t.* from traceability_man t where 1=1
+    <if test = "departmentList != null and departmentList.size>0">
+      and t.department_name in
+      <foreach collection='departmentList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "employeeNumList != null and employeeNumList.size>0">
+      and t.employee_num in
+      <foreach collection='employeeNumList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "processList != null and processList.size>0">
+      and t.process in
+      <foreach collection='processList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "lineList != null and lineList.size>0">
+      and t.line in
+      <foreach collection='lineList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "jobsList != null and jobsList.size>0">
+      and t.job_name in
+      <foreach collection='jobsList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "resultList != null and resultList.size>0">
+      and t.certification_result in
+      <foreach collection='resultList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = 'employeeName != null and employeeName != ""'>
+      AND t.employee_name =#{employeeName}
+    </if>
+    <if test = 'startTime != null and startTime != ""'>
+      AND t.entry_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test = 'endTime != null and endTime !="" '>
+      AND t.entry_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by t.create_date desc limit #{pageNum},#{pageSize}
+  </select>
+
+
+  <select id="getTraceabilityManListCount" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityManVo" resultType="Long">
+    select count(1) from traceability_man t where 1=1
+    <if test = "departmentList != null and departmentList.size>0">
+      and t.department_name in
+      <foreach collection='departmentList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "employeeNumList != null and employeeNumList.size>0">
+      and t.employee_num in
+      <foreach collection='employeeNumList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "processList != null and processList.size>0">
+      and t.process in
+      <foreach collection='processList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "lineList != null and lineList.size>0">
+      and t.line in
+      <foreach collection='lineList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "jobsList != null and jobsList.size>0">
+      and t.job_name in
+      <foreach collection='jobsList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "resultList != null and resultList.size>0">
+      and t.certification_result in
+      <foreach collection='resultList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = 'employeeName != null and employeeName != ""'>
+      AND t.employee_name =#{employeeName}
+    </if>
+    <if test = 'startTime != null and startTime != ""'>
+      AND t.entry_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test = 'endTime != null and endTime !="" '>
+      AND t.entry_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+  </select>
+
+
+  <select id="exportTraceabilityMan" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityManVo" resultMap="BaseResultMap">
+    select t.* from traceability_man t where 1=1
+    <if test = "departmentList != null and departmentList.size>0">
+      and t.department_name in
+      <foreach collection='departmentList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "employeeNumList != null and employeeNumList.size>0">
+      and t.employee_num in
+      <foreach collection='employeeNumList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "processList != null and processList.size>0">
+      and t.process in
+      <foreach collection='processList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "lineList != null and lineList.size>0">
+      and t.line in
+      <foreach collection='lineList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "jobsList != null and jobsList.size>0">
+      and t.job_name in
+      <foreach collection='jobsList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = "resultList != null and resultList.size>0">
+      and t.certification_result in
+      <foreach collection='resultList' index='index' item ='item' separator=',' open='('  close=')'> #{item}</foreach>
+    </if>
+    <if test = 'employeeName != null and employeeName != ""'>
+      AND t.employee_name =#{employeeName}
+    </if>
+    <if test = 'startTime != null and startTime != ""'>
+      AND t.entry_date  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test = 'endTime != null and endTime !="" '>
+      AND t.entry_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by t.create_date desc
+  </select>
+</mapper>

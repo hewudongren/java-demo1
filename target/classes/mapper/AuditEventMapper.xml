@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.factoryaudit.dao.AuditEventMapper">
+
+
+	<select id="getAuditEventList"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditEventSearch"
+		resultType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditEventInfo">
+		SELECT
+		q.*
+		FROM
+		audit_event_info q
+		WHERE
+		1=1
+		<if test='creator != null'>
+			AND q.creator = #{creator}
+		</if>
+		<if test='auditType != null and auditType.size > 0'>
+			AND q.audit_type in
+			<foreach collection='auditType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='auditSource != null and auditSource.size > 0'>
+			AND q.audit_source in
+			<foreach collection='auditSource' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+
+		<if test='startTime != "" and startTime !=null'>
+			AND q.audit_start_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.audit_start_date &lt;=#{endTime}
+		</if>
+		order by q.create_date desc
+		<if test="page != null and size != null">
+			Limit #{page},#{size}
+		</if>
+	</select>
+
+	<select id="getAuditEventCount"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditEventSearch"
+		resultType="Long">
+		SELECT
+		count(1)
+		FROM
+		audit_event_info q
+		WHERE
+		1=1
+		<if test='creator != null'>
+			AND q.creator = #{creator}
+		</if>
+		<if test='auditType != null and auditType.size > 0'>
+			AND q.audit_type in
+			<foreach collection='auditType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='auditSource != null and auditSource.size > 0'>
+			AND q.audit_source in
+			<foreach collection='auditSource' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+
+		<if test='startTime != "" and startTime !=null'>
+			AND q.audit_start_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.audit_start_date &lt;=#{endTime}
+		</if>
+	</select>
+  
+  
+    <insert id="saveAuditEvents" parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditEventInfo">
+    insert into audit_event_info (id,event_number,audit_topics,audit_type,audit_source,audit_party,model,audit_range,appendices,creator,audit_requirements,audit_start_date,audit_end_date,is_send_email,notification_range,status,type)
+    values (#{id},audit_event_number(),#{auditTopics},#{auditType},#{auditSource},#{auditParty},#{model},#{auditRange},#{appendices},#{creator},#{auditRequirements},#{auditStartDate},#{auditEndDate},#{isSendEmail},#{notificationRange},#{status},#{type})
+  </insert>
+  
+	<update id="updateById" parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditEventInfo">
+	    update  audit_event_info
+	    set audit_topics = #{auditTopics},
+	    audit_type = #{auditType},
+	    audit_source = #{auditSource},
+	    audit_party = #{auditParty},
+	    model = #{model},
+	    audit_range = #{auditRange},
+	    appendices = #{appendices},
+	    creator = #{creator},
+	    audit_requirements = #{auditRequirements},
+	    audit_start_date = #{auditStartDate},
+	    audit_end_date=#{auditEndDate},
+	    is_send_email = #{isSendEmail},
+	    notification_range = #{notificationRange},
+	    status = #{status},
+	    type=#{type}
+	    where id=#{id}
+	</update>
+  
+  
+  
+</mapper>

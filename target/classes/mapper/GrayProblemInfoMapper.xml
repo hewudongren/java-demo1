@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.qims.dao.GrayProblemInfoMapper">
+
+
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.GrayProblemInfo">
+    insert into gray_problem_info (id, problem_number, problem_type, 
+      occurrence_time, paragraph_parting, line, 
+      occurrence_site, model, frequency, 
+      reporter, problem_description, response_time, 
+      responder, processing_time,
+      defect_type, defect_number,
+      model_owner, qa_person, is_timely, 
+      solution_analysis, response_lt, problem_solving_lt, 
+      lt, record_status, question_taker, 
+      factory, department,
+      owner_group,item_number,business_datetime,assigneer,assigneer_department)
+    values (#{id,jdbcType=VARCHAR}, concat_ws('-','GRAY',#{line},gray_number_generator()), #{problemType,jdbcType=VARCHAR},
+      #{occurrenceTime,jdbcType=TIMESTAMP}, #{paragraphParting,jdbcType=VARCHAR}, #{line,jdbcType=VARCHAR}, 
+      #{occurrenceSite,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, 
+      #{reporter,jdbcType=VARCHAR}, #{problemDescription,jdbcType=VARCHAR}, #{responseTime,jdbcType=TIMESTAMP}, 
+      #{responder,jdbcType=VARCHAR}, #{processingTime,jdbcType=TIMESTAMP},
+      #{defectType,jdbcType=VARCHAR}, #{defectNumber,jdbcType=VARCHAR},
+      #{modelOwner,jdbcType=VARCHAR}, #{qaPerson,jdbcType=VARCHAR}, #{isTimely,jdbcType=VARCHAR}, 
+      #{solutionAnalysis,jdbcType=VARCHAR}, #{responseLt,jdbcType=VARCHAR}, #{problemSolvingLt,jdbcType=VARCHAR}, 
+      #{lt,jdbcType=VARCHAR}, #{recordStatus,jdbcType=VARCHAR}, #{questionTaker,jdbcType=VARCHAR}, 
+      #{factory,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR},
+      #{ownerGroup,jdbcType=VARCHAR},gray_number_generator(),#{businessDatetime},#{assigneer},#{assigneerDepartment})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.GrayProblemInfo">
+    update gray_problem_info
+    set
+      defect_type = #{defectType,jdbcType=VARCHAR},
+      defect_number = #{defectNumber},
+      model_owner = #{modelOwner,jdbcType=VARCHAR},
+      qa_person = #{qaPerson,jdbcType=VARCHAR},
+      solution_analysis = #{solutionAnalysis,jdbcType=VARCHAR},
+      record_status = '结案',
+      qa_time = #{qaTime,jdbcType=TIMESTAMP},
+      assigneer = #{assigneer,jdbcType=VARCHAR},
+      assigneer_department = #{assigneerDepartment,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getGrayProblemList" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.GrayProblemSearch" resultType="cn.jwis.qualityworkflow.modules.qims.bean.GrayProblemInfo">
+      select * from gray_problem_info
+      where  1= 1
+    <if test="paragraphPartings != null and paragraphPartings.size >0">
+       and paragraph_parting in
+      <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="lines != null and lines.size >0">
+      and line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="occurrenceSites  != null and occurrenceSites.size >0">
+      and occurrence_site in
+      <foreach collection='occurrenceSites' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="models != null and models.size >0">
+      and model in
+      <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="frequencys != null and frequencys.size >0">
+      and frequency in
+      <foreach collection='frequencys' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="isTimelys != null and isTimelys.size >0">
+      and is_timely in
+      <foreach collection='isTimelys' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="name !=null and name != ''">
+      and responder = #{name}
+    </if>
+    <if test="status != null and status.size >0">
+      and record_status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime !="" and startTime !=null'>
+      AND  question_entry_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND question_entry_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+    order  by question_entry_time desc
+    <if test="page != null and size != null">
+      Limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getGrayProblemCount" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.GrayProblemSearch" resultType="Long">
+    select count(1) from gray_problem_info
+    where  1= 1
+    <if test="paragraphPartings != null and paragraphPartings.size >0">
+      and paragraph_parting in
+      <foreach collection='paragraphPartings' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="lines != null and lines.size >0">
+      and line in
+      <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="occurrenceSites  != null and occurrenceSites.size >0">
+      and occurrence_site in
+      <foreach collection='occurrenceSites' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="models != null and models.size >0">
+      and model in
+      <foreach collection='models' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="frequencys != null and frequencys.size >0">
+      and frequency in
+      <foreach collection='frequencys' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="isTimelys != null and isTimelys.size >0">
+      and is_timely in
+      <foreach collection='isTimelys' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="name !=null and name != ''">
+       and responder = #{name}
+    </if>
+    <if test="status != null and status.size >0 ">
+      and record_status in
+      <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime !="" and startTime !=null '>
+      AND  question_entry_time &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND question_entry_time &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+  </select>
+</mapper>

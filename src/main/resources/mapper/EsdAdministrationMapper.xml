@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdAdministrationMapper">
+
+  <insert id="insertEsdInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInfo">
+        insert into esd_info (id,item_number,sample_name,detection_month,sampling_qty,detection_qty,
+        qualified_qty,acceptance_rate,final_acceptance_rate,status,unqualified_qty,nonconforming_disposal_rate)
+        values (#{id},esd_zqj_generator(),#{sampleName},#{detectionMonth},#{samplingQty},#{detectionQty},#{qualifiedQty},
+        #{acceptanceRate},#{finalAcceptanceRate},#{status},#{unqualifiedQty},#{nonconformingDisposalRate})
+    </insert>
+
+  <update id="updateEsdInfoByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInfo">
+    update esd_info
+    set
+    sample_name = #{sampleName},
+    detection_month = #{detectionMonth},
+    sampling_qty = #{samplingQty},
+    detection_qty = #{detectionQty},
+    qualified_qty = #{qualifiedQty},
+    unqualified_qty = #{unqualifiedQty},
+    acceptance_rate = #{acceptanceRate},
+    final_acceptance_rate = #{finalAcceptanceRate},
+    nonconforming_disposal_rate = #{nonconformingDisposalRate},
+    status = #{status}
+    where id = #{id}
+  </update>
+
+  <select id="findEsdAdministration" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInfo">
+     select  * from  esd_info where  1=1
+     <if test="list != null and list.size > 0">
+       and sample_name in
+       <foreach collection="list" index="index" item="item" open="(" close=")" separator="," >
+         #{item}
+       </foreach>
+     </if>
+    <if test="dateList != null and dateList.size >0">
+      and detection_month in
+      <foreach collection="dateList" index="index" item="item" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    order by detection_month desc,id desc
+    <if test="page != null and size != null">
+      limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="findEsdAdministrationCount" resultType="Long">
+    select count(1)  from  esd_info where  1=1
+    <if test="list != null and list.size > 0">
+      and sample_name in
+      <foreach collection="list" index="index" item="item" open="(" close=")" separator="," >
+        #{item}
+      </foreach>
+    </if>
+    <if test="dateList != null and dateList.size >0">
+      and detection_month in
+      <foreach collection="dateList" index="index" item="item" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="getEsdDetailInfoByEsdId" resultType="com.alibaba.fastjson.JSONObject">
+    select  * from  esd_detail_info where  1=1
+     and esd_id = #{id}
+    <if test="isPass != null and isPass.size > 0">
+      and is_qualified in
+      <foreach collection="isPass" index="index" item="item" open="(" close=")" separator="," >
+        #{item}
+      </foreach>
+    </if>
+    <if test="startTime != null and startTime != ''">
+      and detection_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test="endTime != null and endTime != ''">
+      and detection_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+    order by detection_date desc
+    <if test="page != null and size != null">
+      limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getEsdDetailCountByEsdId" resultType="Long">
+    select  count(1)  from  esd_detail_info where  1=1
+    and esd_id = #{id}
+    <if test="isPass != null and isPass.size > 0">
+      and is_qualified in
+      <foreach collection="isPass" index="index" item="item" open="(" close=")" separator="," >
+        #{item}
+      </foreach>
+    </if>
+    <if test="startTime != null and startTime != ''">
+      and detection_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+    </if>
+    <if test="endTime != null and endTime != ''">
+      and detection_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+    </if>
+  </select>
+
+  <update id="updatePassByPrimaryKey">
+    update esd_info
+    set
+    qualified_qty = #{qualifiedQty},
+    final_acceptance_rate = #{passRate},
+    unqualified_qty = #{unQualifiedQty},
+    nonconforming_disposal_rate = #{rate}
+    where id = #{id}
+  </update>
+</mapper>

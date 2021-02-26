@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.traceablity.dao.TraceablityEnvironmentMappingMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.traceablity.bean.TraceablityEnvironmentMapping">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="SN" jdbcType="VARCHAR" property="sn" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="process_period" jdbcType="VARCHAR" property="processPeriod" />
+    <result column="site" jdbcType="VARCHAR" property="site" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+    <result column="line" jdbcType="VARCHAR" property="line" />
+  </resultMap>
+</mapper>

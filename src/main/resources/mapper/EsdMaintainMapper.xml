@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdMaintainMapper">
+
+    <insert id="savaEsdInStanInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanInfo">
+        insert into esd_inspection_standard_info (id,sample_name,detection_item,unit,lower_limit,upper_limit,detection_tool,remark,creator,category)
+        values (#{id},#{sampleName},#{detectionItem},#{unit},#{lowerLimit},#{upperLimit},#{detectionTool},#{remark},#{creator},#{category})
+    </insert>
+
+    <update id="updateEsdInStanInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanInfo">
+        update  esd_inspection_standard_info
+        <set>
+        <if test="sampleName != null and sampleName != ''">
+            sample_name = #{sampleName},
+        </if>
+        <if test="detectionItem != null and detectionItem != ''">
+            detection_item = #{detectionItem},
+        </if>
+        <if test="unit != null and unit != ''">
+            unit = #{unit},
+        </if>
+        <if test="lowerLimit != null  and lowerLimit != ''">
+            lower_limit = #{lowerLimit},
+        </if>
+        <if test="upperLimit != null  and upperLimit != ''">
+            upper_limit = #{upperLimit},
+        </if>
+        <if test="detectionTool != null and detectionTool != ''">
+            detection_tool = #{detectionTool},
+        </if>
+         remark = #{remark},
+        </set>
+        where  id = #{id}
+    </update>
+
+    <delete id="removeEsdInStanInfo" parameterType="String">
+        delete  from  esd_inspection_standard_info where  id =#{id}
+    </delete>
+
+    <select id="findEsdInStanInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanInfo">
+        select * from  esd_inspection_standard_info
+        where  1=1
+        <if test="sampleNameList != null and sampleNameList.size > 0">
+            and  sample_name  in
+            <foreach collection='sampleNameList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="detectionItemList != null and detectionItemList.size > 0">
+            and detection_item in
+            <foreach collection='detectionItemList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate != null and startDate != ''">
+            and update_date &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d')
+        </if>
+        <if test="endDate != null and endDate != ''">
+            and update_date &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+        <if test="category != null and category != ''">
+            and category = #{category}
+        </if>
+        order by update_date desc
+        <if test="page != null and size != ''">
+            limit #{page},#{size}
+        </if>
+    </select>
+
+    <select id="findEsdInStanInfoCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanSearch" resultType="Long">
+        select count(1) from  esd_inspection_standard_info
+        where  1=1
+        <if test="sampleNameList != null and sampleNameList.size > 0">
+            and  sample_name  in
+            <foreach collection='sampleNameList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="detectionItemList != null and detectionItemList.size > 0">
+            and detection_item in
+            <foreach collection='detectionItemList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate != null and startDate != ''">
+            and update_date &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d')
+        </if>
+        <if test="endDate != null and endDate != ''">
+            and update_date &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+        <if test="category != null and category != ''">
+            and category = #{category}
+        </if>
+    </select>
+
+    <insert id="savaEsdSamplingLevelInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSamplingLevelInfo">
+        insert into esd_sampling_level_info (id,sample_name,sampling_qty,sampling_rate,remark,creator,category)
+        values (#{id},#{sampleName},#{samplingQty},#{samplingRate},#{remark},#{creator},#{category})
+    </insert>
+
+    <update id="updateEsdSamplingLevelInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSamplingLevelInfo">
+        update  esd_sampling_level_info
+        <set>
+        <if test="sampleName != null and sampleName != ''">
+            sample_name = #{sampleName},
+        </if>
+        <if test="samplingQty != null and samplingQty != ''">
+            sampling_qty = #{samplingQty},
+        </if>
+        sampling_rate = #{samplingRate},
+        remark = #{remark},
+        </set>
+        where  id = #{id}
+    </update>
+
+    <delete id="removeEsdSamplingLevelInfo" parameterType="String">
+        delete  from  esd_sampling_level_info where  id =#{id}
+    </delete>
+
+    <select id="findEsdSamplingLevelInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdSamplingLevelInfo">
+        select * from  esd_sampling_level_info
+        where  1=1
+        <if test="sampleNameList != null and sampleNameList.size > 0">
+            and  sample_name  in
+            <foreach collection='sampleNameList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate != null and startDate != ''">
+            and update_date &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d')
+        </if>
+        <if test="endDate != null and endDate != ''">
+            and update_date &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+        <if test="category != null and category != ''">
+            and category = #{category}
+        </if>
+        order by update_date desc
+        <if test="page != null and size != ''">
+            limit #{page},#{size}
+        </if>
+    </select>
+
+    <select id="findEsdSamplingLevelInfoCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdInStanSearch" resultType="Long">
+        select count(1) from  esd_sampling_level_info
+        where  1=1
+        <if test="sampleNameList != null and sampleNameList.size > 0">
+            and  sample_name  in
+            <foreach collection='sampleNameList' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate != null and startDate != ''">
+            and update_date &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d')
+        </if>
+        <if test="endDate != null and endDate != ''">
+            and update_date &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+        <if test="category != null and category != ''">
+            and category = #{category}
+        </if>
+    </select>
+</mapper>

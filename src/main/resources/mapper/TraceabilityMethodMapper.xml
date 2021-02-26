@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.traceablity.dao.TraceabilityMethodMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.traceablity.bean.TraceabilityMethod">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="file_number" jdbcType="VARCHAR" property="fileNumber" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="files_class_id" jdbcType="VARCHAR" property="filesClassId" />
+    <result column="file_type" jdbcType="VARCHAR" property="fileType" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="file_valid_time" jdbcType="VARCHAR" property="fileValidTime" />
+    <result column="file_expiration_time" jdbcType="VARCHAR" property="fileExpirationTime" />
+    <result column="file_owner" jdbcType="VARCHAR" property="fileOwner" />
+    <result column="file_version" jdbcType="VARCHAR" property="fileVersion" />
+    <result column="file_status" jdbcType="VARCHAR" property="fileStatus" />
+    <result column="file_status_describe" jdbcType="VARCHAR" property="fileStatusDescribe" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="model_name" jdbcType="VARCHAR" property="modelName" />
+  </resultMap>
+  <select id="getTraceabilityMethodList" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityMethodVo" resultMap="BaseResultMap">
+    select t.* from traceability_method t where 1=1
+    <if test="modelName != null and modelName != &quot;&quot;">
+      AND t.model_name = #{modelName}
+    </if>
+    <if test="fileOwnerList != null and fileOwnerList.size>0">
+      AND t.file_owner in
+      <foreach collection='fileOwnerList' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="fileName != null and fileName != &quot;&quot;">
+      AND t.file_name = #{fileName}
+    </if>
+    <if test="startTime != null and startTime != &quot;&quot;">
+      AND t.file_expiration_time  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test="endTime != null and endTime !=&quot;&quot; ">
+      AND t.file_expiration_time  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by t.file_expiration_time desc limit #{pageNum},#{pageSize}
+  </select>
+
+  <select id="getTraceabilityMethodCount" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityMethodVo" resultType="Long">
+    select count(1) from traceability_method t where 1=1
+    <if test="modelName != null and modelName != &quot;&quot;">
+      AND t.model_name = #{modelName}
+    </if>
+    <if test="fileOwnerList != null and fileOwnerList.size>0">
+      AND t.file_owner in
+      <foreach collection='fileOwnerList' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="fileName != null and fileName != &quot;&quot;">
+      AND t.file_name = #{fileName}
+    </if>
+    <if test="startTime != null and startTime != &quot;&quot;">
+      AND t.file_expiration_time  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test="endTime != null and endTime !=&quot;&quot; ">
+      AND t.file_expiration_time  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+  </select>
+
+
+  <select id="exportTraceabilityMethod" parameterType="cn.jwis.qualityworkflow.modules.traceablity.bean.QueryTraceabilityMethodVo" resultMap="BaseResultMap">
+    select t.* from traceability_method t where 1=1
+    <if test="modelName != null and modelName != &quot;&quot;">
+      AND t.model_name = #{modelName}
+    </if>
+    <if test="fileOwnerList != null and fileOwnerList.size>0">
+      AND t.file_owner in
+      <foreach collection='fileOwnerList' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="fileName != null and fileName != &quot;&quot;">
+      AND t.file_name = #{fileName}
+    </if>
+    <if test="startTime != null and startTime != &quot;&quot;">
+      AND t.file_expiration_time  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test="endTime != null and endTime !=&quot;&quot; ">
+      AND t.file_expiration_time  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by t.file_expiration_time desc
+  </select>
+</mapper>

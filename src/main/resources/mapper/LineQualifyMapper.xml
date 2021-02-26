@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="cn.jwis.qualityworkflow.modules.linequalify.dao.LineQualifyMapper">
+
+
+	<select id="getLineQualifyInfoList"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifySearch"
+		resultType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifyInfo">
+		SELECT
+		q.*, ar.workflow_business_id ,
+		ar.process_instance_id ,
+		ar.task_id ,
+		ar.assignee
+		FROM
+		line_qualify_info q ,
+		(
+		SELECT
+		tr.workflow_business_id ,
+		tr.process_instance_id ,
+		tr.task_id ,
+		tr.assignee ,
+		tr.task_name AS STATUS
+		FROM
+		task_record tr
+		WHERE
+		template_key = 'Line Qualify'
+
+		<if test='assignee != "" and assignee !=null'>
+			AND tr.assignee = #{assignee}
+		</if>
+		<if test='flag == 1'>
+			and task_state is null
+		</if>
+		<if test='flag == 2'>
+			and task_state='Close'
+		</if>
+		) ar
+		WHERE
+		q.id = ar.workflow_business_id
+		<if test='lines != null and lines.size > 0'>
+			AND q.line in
+			<foreach collection='lines' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='process != null and process.size > 0'>
+			AND q.process_section in
+			<foreach collection='process' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='models != null and models.size > 0'>
+			AND q.model in
+			<foreach collection='models' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+		order by q.create_date desc
+		<if test="page != null and size != null">
+			Limit #{page},#{size}
+		</if>
+	</select>
+
+	<select id="getLineQualifyInfoCount"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifySearch"
+		resultType="Long">
+		SELECT
+		count(1)
+		FROM
+		line_qualify_info q ,
+		(
+		SELECT
+		tr.workflow_business_id ,
+		tr.process_instance_id ,
+		tr.task_id ,
+		tr.assignee ,
+		tr.task_name AS
+		STATUS from
+		task_record tr
+		WHERE template_key = 'Line Qualify'
+		<if test='assignee != "" and assignee !=null'>
+			AND tr.assignee = #{assignee}
+		</if>
+		<if test='flag == 1'>
+			and task_state is null
+		</if>
+		<if test='flag == 2'>
+			and task_state='Close'
+		</if>
+		) ar
+		WHERE
+		q.id = ar.workflow_business_id
+		<if test='lines != null and lines.size > 0'>
+			AND q.line in
+			<foreach collection='lines' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='models != null and models.size > 0'>
+			AND q.model in
+			<foreach collection='models' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='process != null and process.size > 0'>
+			AND q.process_section in
+			<foreach collection='process' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+	</select>
+
+
+	<select id="getCertificationList"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifySearch"
+		resultType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifyInfo">
+		SELECT
+		q.*
+		FROM
+		line_qualify_info q
+		INNER JOIN(
+		SELECT
+		line ,
+		max(update_date) maxDate
+		FROM
+		line_qualify_info
+		where status='结案'
+		GROUP BY
+		line
+		) temp ON q.line = temp.line
+		AND q.update_date = temp.maxDate
+		where
+		q.status='结案'
+		<if test='lines != null and lines.size > 0'>
+			AND q.line in
+			<foreach collection='lines' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='process != null and process.size > 0'>
+			AND q.process_section in
+			<foreach collection='process' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+		order by q.create_date desc
+		<if test="page != null and size != null">
+			Limit #{page},#{size}
+		</if>
+	</select>
+
+	<select id="getCertificationCount"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifySearch"
+		resultType="Long">
+		SELECT
+		count(1)
+		FROM
+		line_qualify_info q
+		INNER JOIN(
+		SELECT
+		line ,
+		max(update_date) maxDate
+		FROM
+		line_qualify_info
+		where status='结案'
+		GROUP BY
+		line
+		) temp ON q.line =
+		temp.line
+		AND q.update_date = temp.maxDate
+		where q.status='结案'
+		<if test='lines != null and lines.size > 0'>
+			AND q.line in
+			<foreach collection='lines' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='process != null and process.size > 0'>
+			AND q.process_section in
+			<foreach collection='process' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+	</select>
+
+	<insert id="saveLineQualifyInfo"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifyInfo">
+		insert into line_qualify_info
+		(id,sn,subject_matter,product_category,manufacture_type,item,model,process_section,line,delivery_time,creator,status,qe_handler)
+		values
+		(#{id},line_qualify_number(),#{subjectMatter},#{productCategory},#{manufactureType},#{item},#{model},#{processSection},#{line},#{deliveryTime},#{creator},#{status},#{qeHandler})
+	</insert>
+
+	<update id="updateLineQualifyById"
+		parameterType="cn.jwis.qualityworkflow.modules.linequalify.bean.LineQualifyInfo">
+		update line_qualify_info
+		set subject_matter = #{subjectMatter},
+		product_category = #{productCategory},
+		manufacture_type = #{manufactureType},
+		item = #{item},
+		model = #{model},
+		model = #{model},
+		process_section = #{processSection},
+		line = #{line},
+		delivery_time = #{deliveryTime},
+		creator = #{creator},
+		status=#{status},
+		qe_handler = #{qeHandler}
+		where id=#{id}
+	</update>
+
+</mapper>

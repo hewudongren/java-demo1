@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.qims.dao.QimsTargetInfoMapper">
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from qims_target_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsTargetInfo">
+    insert into qims_target_info (id, problem_type, cycle, 
+      timely_closing_rate, closing_rate, remarks, 
+      creator)
+    values (#{id,jdbcType=VARCHAR}, #{problemType,jdbcType=VARCHAR}, #{cycle,jdbcType=INTEGER}, 
+      #{timelyClosingRate,jdbcType=REAL}, #{closingRate,jdbcType=REAL}, #{remarks,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsTargetInfo">
+    update qims_target_info
+    set problem_type = #{problemType,jdbcType=VARCHAR},
+      cycle = #{cycle,jdbcType=INTEGER},
+      timely_closing_rate = #{timelyClosingRate,jdbcType=REAL},
+      closing_rate = #{closingRate,jdbcType=REAL},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getTarget" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsTargetSearch" resultType="cn.jwis.qualityworkflow.modules.qims.bean.QimsTargetInfo">
+      SELECT  * FROM qims_target_info
+      WHERE  1=1
+      <if test="problemType != null and problemType !=''">
+        and problem_type = #{problemType}
+      </if>
+     <if test="cycle != null and cycle !=''">
+      and cycle =#{cycle}
+     </if>
+    <if test='startTime != "" and startTime !=null '>
+      AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+    <if test="page != null and size != null">
+      limit #{page},#{size}
+    </if>
+  </select>
+
+  <select id="getTargetCount" parameterType="cn.jwis.qualityworkflow.modules.qims.bean.QimsTargetSearch" resultType="Long">
+    SELECT  count(1) FROM qims_target_info
+    WHERE  1=1
+    <if test="problemType != null and problemType !=''">
+      and problem_type = #{problemType}
+    </if>
+    <if test="cycle != null and cycle !=''">
+      and cycle =#{cycle}
+    </if>
+    <if test='startTime != "" and startTime !=null '>
+      AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+    </if>
+    <if test='endTime !=null and  endTime != ""'>
+      AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d ')
+    </if>
+  </select>
+</mapper>

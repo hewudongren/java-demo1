@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.ipqc.dao.AuditListInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.ipqc.bean.AuditListInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="file_number" jdbcType="VARCHAR" property="fileNumber" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="process" jdbcType="VARCHAR" property="process" />
+    <result column="line" jdbcType="VARCHAR" property="line" />
+    <result column="audit_date" jdbcType="VARCHAR" property="auditDate" />
+    <result column="frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="inspector" jdbcType="VARCHAR" property="inspector" />
+    <result column="time_interval" jdbcType="VARCHAR" property="timeInterval" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_person" jdbcType="VARCHAR" property="updatePerson" />
+  </resultMap>
+  <select id="getAuditListInfo" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryListInfoBean" resultMap="BaseResultMap">
+    select i.*,a.template_number as templateNumber,a.template_name as templateName from audit_list_info i,audit_template_info a where i.audit_template_id=a.id
+    <if test='assignee != null and assignee != ""'>
+      and i.creator=#{assignee}
+    </if>
+    <if test='modelList != null and modelList.size > 0'>
+      and i.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='processList != null and processList.size > 0'>
+      and i.process in
+      <foreach close=")" collection="processList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by i.create_date desc limit #{pageNum},#{pageSize}
+  </select>
+
+
+  <select id="getAuditListCount" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryListInfoBean" resultType="Long">
+    select count(1) from audit_list_info i,audit_template_info a where i.audit_template_id=a.id
+    <if test='assignee != null and assignee != ""'>
+      and i.creator=#{assignee}
+    </if>
+    <if test='modelList != null and modelList.size > 0'>
+      and i.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='processList != null and processList.size > 0'>
+      and i.process in
+      <foreach close=")" collection="processList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+  </select>
+
+
+  <insert id="insertAuditListInfo" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.AuditListInfo">
+   insert  into audit_list_info(id,audit_template_id,file_number,model,process,audit_date,frequency,inspector,time_interval,line,create_date,creator)
+  values(#{id},#{auditTemplateId},#{fileNumber},#{model},#{process},#{auditDate},#{frequency},#{inspector},#{timeInterval},#{line},#{createDate},#{creator})
+  </insert>
+
+  <select id="exportAuditListInfo" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryListInfoBean" resultMap="BaseResultMap">
+    select i.*,a.template_number as templateNumber,a.template_name as templateName from audit_list_info i,audit_template_info a where i.audit_template_id=a.id
+    <if test='assignee != null and assignee != ""'>
+      and i.creator=#{assignee}
+    </if>
+    <if test='modelList != null and modelList.size > 0'>
+      and i.model in
+      <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='processList != null and processList.size > 0'>
+      and i.process in
+      <foreach close=")" collection="processList" index="index" item="item" open="(" separator=",">
+        #{item}
+      </foreach>
+    </if>
+    <if test='startTime != null and startTime != ""'>
+      AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+    </if>
+    <if test='endTime != null and endTime !="" '>
+      AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+    </if>
+    order by i.create_date desc
+  </select>
+</mapper>

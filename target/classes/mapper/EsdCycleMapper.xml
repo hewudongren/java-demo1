@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdCycleMapper">
+
+    <insert id="saveEsdCycleInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdCycleInfo">
+        insert into esd_cycle_info (
+        id,item_number, sample_name, detection_month, sampling_qty,detection_qty,
+        qualified_qty,acceptance_rate,final_acceptance_rate,status,creator,causal_analyst,cause_analysis,
+        cause_analysis_date,improvement_measures,improvement_measuresor,improvement_measures_date,
+        effect_verification,verifiedor,verified_date,approval_result,case_closing_approver,case_closing_date,unqualified_qty,nonconforming_disposal_rate)
+        values (
+        #{id},esd_cycle_generator(),#{sampleName},#{detectionMonth},#{samplingQty},#{detectionQty},#{qualifiedQty},
+        #{acceptanceRate},#{finalAcceptanceRate},#{status},#{creator},#{causalAnalyst},#{causeAnalysis},
+        #{causeAnalysisDate},#{improvementMeasures},#{improvementMeasuresor},#{improvementMeasuresDate},
+        #{effectVerification},#{verifiedor},#{verifiedDate},#{approvalResult},#{caseClosingApprover},#{caseClosingDate},#{unqualifiedQty},#{nonconformingDisposalRate})
+    </insert>
+
+    <update id="updateEsdCycleInfo" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdCycleInfo">
+    update esd_cycle_info
+    set
+    sample_name = #{sampleName},
+    detection_month = #{detectionMonth},
+    sampling_qty = #{samplingQty},
+    detection_qty = #{detectionQty},
+    qualified_qty = #{qualifiedQty},
+    acceptance_rate = #{acceptanceRate},
+    final_acceptance_rate = #{finalAcceptanceRate},
+    status = #{status},
+    creator = #{creator},
+    causal_analyst = #{causalAnalyst},
+    cause_analysis = #{causeAnalysis},
+    cause_analysis_date = #{causeAnalysisDate},
+    improvement_measures = #{improvementMeasures},
+    improvement_measuresor = #{improvementMeasuresor},
+    improvement_measures_date = #{improvementMeasuresDate},
+    effect_verification = #{effectVerification},
+    verifiedor = #{verifiedor},
+    verified_date = #{verifiedDate},
+    approval_result = #{approvalResult},
+    case_closing_approver = #{caseClosingApprover},
+    case_closing_date = #{caseClosingDate}
+    where id = #{id}
+  </update>
+
+    <select id="getEsdCycleList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdCycleSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdCycleInfo">
+        select e.*,ar.process_instance_id,ar.task_id,ar.task_state,ar.workflow_business_id  FROM esd_cycle_info e,
+        ( SELECT
+        t1.process_instance_id,
+        t1.task_id,
+        t1.task_state,
+        t1.workflow_business_id
+        FROM
+        task_record t1
+        INNER JOIN (
+        SELECT
+        process_instance_id,
+        max( task_id ) AS task_id,
+        assignee
+        FROM
+        task_record
+        WHERE 1=1
+        <if test="assignee != null and assignee !=''">
+            and  assignee = #{assignee}
+        </if>
+        AND template_key = 'ESDProcess' GROUP BY process_instance_id ) t2
+        ON t1.process_instance_id = t2.process_instance_id
+        and t1.task_id = t2.task_id
+        ) ar where e.id=ar.workflow_business_id
+        <if test='sampleNames != null and sampleNames.size > 0'>
+            AND sample_name in
+            <foreach collection='sampleNames' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='status != null and status.size > 0'>
+            AND status in
+            <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+        order by create_date desc
+        <if test="page != null and size != null">
+            Limit #{page},#{size}
+        </if>
+
+    </select>
+
+    <select id="getEsdCycleListCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdCycleSearch" resultType="Long">
+        SELECT count(1) FROM esd_cycle_info e,
+        ( SELECT
+        t1.process_instance_id,
+        t1.task_id,
+        t1.task_state,
+        t1.workflow_business_id
+        FROM
+        task_record t1
+        INNER JOIN (
+        SELECT
+        process_instance_id,
+        max( task_id ) AS task_id,
+        assignee
+        FROM
+        task_record
+        WHERE 1=1
+        <if test="assignee != null and assignee !=''">
+            and  assignee = #{assignee}
+        </if>
+        AND template_key = 'ESDProcess' GROUP BY process_instance_id ) t2
+        ON t1.process_instance_id = t2.process_instance_id
+        and t1.task_id = t2.task_id
+        ) ar where e.id=ar.workflow_business_id
+        <if test='sampleNames != null and sampleNames.size > 0'>
+            AND sample_name in
+            <foreach collection='sampleNames' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='status != null and status.size > 0'>
+            AND status in
+            <foreach collection='status' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != "" and startTime !=null '>
+            AND  create_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND create_date &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+        </if>
+    </select>
+</mapper>

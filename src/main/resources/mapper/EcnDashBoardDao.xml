@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.ecn.dao.EcnDashBoardDao">
+    <select id="getEcnAddCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        select count(*) from ecn_info
+        where 1 = 1
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getExtAddCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        select count(*) from external_document
+        where 1 = 1
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getEcnClosedCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        select count(*) from ecn_info
+        where status = 'Close'
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getExtCloseCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        select count(*) from external_document
+        where status = 'Close'
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getEcnProcessingCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        SELECT count(*) from ecn_info
+        where status &lt;&gt; 'Close'
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getExtProcessingCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        SELECT count(*) from external_document
+        where status &lt;&gt; 'Close'
+        <include refid="preHandle"/>
+    </select>
+
+    <select id="getEcnOverDueCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        SELECT count(*) from
+        ( SELECT
+        e.id, max(update_date) as max_update
+        FROM
+        ( SELECT id from ecn_info WHERE status &lt;&gt; 'Close'  <include refid="preHandle"/>) e
+        left JOIN task_record t ON ( e.id = t.workflow_business_id )
+        WHERE task_state = 'OnGoing'
+        GROUP BY e.id) temp
+        where NOW() > DATE_ADD(temp.max_update,INTERVAL 1 DAY)
+    </select>
+
+    <select id="getExtOverDueCount" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="java.lang.Integer">
+        SELECT count(*) from
+        ( SELECT
+        e.id, max(update_date) as max_update
+        FROM
+        ( SELECT id from external_document WHERE status &lt;&gt; 'Close'  <include refid="preHandle"/>) e
+        left JOIN task_record t ON ( e.id = t.workflow_business_id )
+        WHERE task_state = 'OnGoing'
+        GROUP BY e.id) temp
+        where NOW() > DATE_ADD(temp.max_update,INTERVAL 1 DAY)
+    </select>
+
+
+    <select id="getEcnAddCountGroupByTime" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num from ecn_info
+        where 1 = 1
+        <include refid="preHandle"/>
+        group by date
+    </select>
+
+    <select id="getExtAddCountGroupByTime" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num  from external_document
+        where 1 = 1
+        <include refid="preHandle"/>
+        group by date
+    </select>
+
+    <select id="getEcnCloseNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num  from ecn_info
+        where status = 'Close'
+        <include refid="preHandle"/>
+        group by date
+    </select>
+
+    <select id="getExtCloseNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num  from external_document
+        where status = 'Close'
+        <include refid="preHandle"/>
+        group by date
+    </select>
+
+    <select id="getEcn72HourCloseNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num  from ecn_info
+        where status = 'Close'
+        <include refid="preHandle"/>
+        And DATE_ADD(create_date,INTERVAL 3 DAY) > update_date
+        group by date
+    </select>
+
+    <select id="getExt72HourCloseNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        select ${groupTime} date, count(*) num  from external_document
+        where status = 'Close'
+        <include refid="preHandle"/>
+        And DATE_ADD(create_date,INTERVAL 3 DAY) > update_date
+        group by date
+    </select>
+
+
+    <!--24小时及时处置率&#45;&#45;在24小时内完成第一个节点任务的单据数/新建单据数-->
+    <!--首先获取Task_record表中 属于 QMSEcnProcess流程 Plan(第一个任务节点名) 按照 workflow_business_Id 分类-->
+    <!--分类 后获取 对应的 id以及 最小的更新时间-->
+    <!--再根据 这个id 和 最小的更新时间 获取 到task_record中 所有流程 在第一个plan节点的信息-->
+    <!--筛选出 任务状态为完成 并且 创建时间 + 24小时 > 更新时间-->
+    <!--此处 筛选除了所有满足条件的 流程 id-->
+    <!--在到ecn表中按照 创建时间按月排序 最终可得到 按月分类24小时及时处置的ECN数量-->
+    <select id="getEcn24HourDisposalNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT ${groupTime} date,count(*) num from
+        ecn_info
+        where 1=1
+        <include refid="preHandle"/>
+        and id in (
+            SELECT workflow_business_id from task_record t join  (
+                SELECT
+                id, min(update_date) as min_update_date
+            FROM
+                task_record
+            WHERE
+                template_key = 'QMSEcnProcess'
+                AND task_name = 'Plan'
+                GROUP BY workflow_business_id) temp
+                on t.id = temp.id
+                and t.update_date = temp.min_update_date
+                    where
+                    task_state = 'Close'
+                    and DATE_ADD(create_date,INTERVAL 1 DAY) > update_date
+        ) GROUP BY date
+    </select>
+
+    <!--与getEcn24HourDisposalNum 思路相同 不再赘述-->
+    <select id="getExt24HourDisposalNum" parameterType="cn.jwis.qualityworkflow.modules.ecn.bean.QueryDashboardBean" resultType="com.alibaba.fastjson.JSONObject">
+         SELECT ${groupTime} date,count(*) num from
+            external_document
+            where 1=1
+            <include refid="preHandle"/>
+            and id in (
+                SELECT workflow_business_id from task_record t join  (
+                    SELECT
+                    id, min(update_date) as min_update_date
+                FROM
+                    task_record
+                WHERE
+                    template_key = 'QMSExternalDocuments'
+                    AND task_name = 'Confirm'
+                    GROUP BY workflow_business_id) temp
+                    on t.id = temp.id
+                    and t.update_date = temp.min_update_date
+                    where
+                    task_state = 'Close'
+                    and DATE_ADD(create_date,INTERVAL 1 DAY) > update_date
+          ) GROUP BY date
+    </select>
+
+    <sql id="preHandle">
+        <if test='senderSide != null and senderSide.size > 0'>
+            AND sender_side in
+            <foreach collection='senderSide' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='worksSection != null and worksSection.size > 0'>
+            AND works_section in
+            <foreach collection='worksSection' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime and startTime !=null != ""'>
+            AND ${time}  &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d ')
+        </if>
+        <if test='endTime !=null and  endTime != ""'>
+            AND ${time} &lt;= DATE_ADD(DATE_FORMAT(#{endTime},'%Y-%m-%d '),INTERVAL 1 DAY)
+        </if>
+    </sql>
+</mapper>

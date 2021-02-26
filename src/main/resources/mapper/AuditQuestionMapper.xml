@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="cn.jwis.qualityworkflow.modules.factoryaudit.dao.AuditQuestionMapper">
+
+
+	<select id="getAuditQuestionInfoList"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionSearch"
+		resultType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionInfo">
+		SELECT
+		q.*, ar.workflow_business_id ,
+		ar.process_instance_id ,
+		ar.task_id ,
+		ar.assignee
+		FROM
+		audit_problem_info q ,
+		(
+		SELECT
+		tr.workflow_business_id ,
+		tr.process_instance_id ,
+		tr.task_id ,
+		tr.assignee ,
+		tr.task_name AS STATUS
+		FROM
+		task_record tr
+		INNER JOIN(
+		SELECT
+		workflow_business_id ,
+		max(task_id) maxTaskId,
+		max(create_date)
+		maxDate
+		FROM
+		task_record
+		WHERE
+		template_key = 'FactoryAuditProcess'
+		<if test='assignee != "" and assignee !=null'>
+			AND assignee = #{assignee}
+		</if>
+		<if test='flag == 1'>
+			and task_state is null
+		</if>
+		<if test='flag == 2'>
+			and task_state='Close'
+		</if>
+		GROUP BY
+		workflow_business_id
+		) temp ON tr.task_id =
+		temp.maxTaskId
+		AND
+		tr.create_date = temp.maxDate
+		WHERE
+		1=1
+		<if test='assignee != "" and assignee !=null'>
+			AND tr.assignee = #{assignee}
+		</if>
+		) ar
+		WHERE
+		q.id = ar.workflow_business_id
+		<if test='auditTopics != null and auditTopics.size > 0'>
+			AND q.audit_topics in
+			<foreach collection='auditTopics' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemType != null and problemType.size > 0'>
+			AND q.problem_type in
+			<foreach collection='problemType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='occurrenceSite != null and occurrenceSite.size > 0'>
+			AND q.occurrence_site in
+			<foreach collection='occurrenceSite' index='index'
+				item='item' separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemLevel != null and problemLevel.size > 0'>
+			AND q.problem_level in
+			<foreach collection='problemLevel' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemKeywords != null and problemKeywords.size > 0'>
+			AND q.problem_keywords in
+			<foreach collection='problemKeywords' index='index'
+				item='item' separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='eventNumber != null and eventNumber.size > 0'>
+			AND q.event_number in
+			<foreach collection='eventNumber' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+		order by q.create_date desc
+		<if test="page != null and size != null">
+			Limit #{page},#{size}
+		</if>
+	</select>
+
+	<select id="getAuditQuestionInfoCount"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionSearch"
+		resultType="Long">
+		SELECT
+		count(1)
+		FROM
+		audit_problem_info q ,
+		(
+		SELECT
+		tr.workflow_business_id ,
+		tr.process_instance_id ,
+		tr.task_id ,
+		tr.assignee ,
+		tr.task_name AS
+		STATUS from
+		task_record tr
+		INNER JOIN(
+		SELECT
+		workflow_business_id ,
+		max(task_id) maxTaskId,
+		max(create_date)
+		maxDate
+		FROM
+		task_record
+		WHERE
+		template_key =
+		'FactoryAuditProcess'
+		<if test='assignee != "" and assignee !=null'>
+			AND assignee = #{assignee}
+		</if>
+		<if test='flag == 1'>
+			and task_state is null
+		</if>
+		<if test='flag == 2'>
+			and task_state='Close'
+		</if>
+		GROUP BY
+		workflow_business_id
+		) temp ON tr.task_id =
+		temp.maxTaskId
+		AND
+		tr.create_date = temp.maxDate
+		WHERE
+		1=1
+		<if test='assignee != "" and assignee !=null'>
+			AND tr.assignee = #{assignee}
+		</if>
+		) ar
+		WHERE
+		q.id = ar.workflow_business_id
+		<if test='auditTopics != null and auditTopics.size > 0'>
+			AND q.audit_topics in
+			<foreach collection='auditTopics' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemType != null and problemType.size > 0'>
+			AND q.problem_type in
+			<foreach collection='problemType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='occurrenceSite != null and occurrenceSite.size > 0'>
+			AND q.occurrence_site in
+			<foreach collection='occurrenceSite' index='index'
+				item='item' separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemLevel != null and problemLevel.size > 0'>
+			AND q.problem_level in
+			<foreach collection='problemLevel' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='problemKeywords != null and problemKeywords.size > 0'>
+			AND q.problem_keywords in
+			<foreach collection='problemKeywords' index='index'
+				item='item' separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='eventNumber != null and eventNumber.size > 0'>
+			AND q.event_number in
+			<foreach collection='eventNumber' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND q.create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND q.create_date &lt;=#{endTime}
+		</if>
+	</select>
+
+
+	<select id="getKeywordsPlato"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionSearch"
+		resultType="com.alibaba.fastjson.JSONObject">
+		SELECT
+		problem_keywords problemKeywords ,
+		count(*) AS num
+		FROM
+		audit_problem_info
+		WHERE
+		problem_keywords IS NOT NULL
+		<if test='auditType != null and auditType.size > 0'>
+			AND audit_type in
+			<foreach collection='auditType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND create_date &lt;=#{endTime}
+		</if>
+		GROUP BY
+		problemKeywords
+		ORDER BY
+		num DESC
+		LIMIT 10
+	</select>
+
+
+	<select id="getAuditQuestionTrends"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionSearch"
+		resultType="Map">
+		SELECT
+		DATE_FORMAT(create_date , '%b-%y') abscissa,
+		count(1) total ,
+		sum(IF(STATUS = '结案' , 1 , 0)) closeTotal ,
+		round(sum(IF(STATUS = '结案' , 1 , 0)) /
+		count(1) * 100,2) closeRate,
+		round(sum(
+		IF(
+		(STATUS = '结案' and is_time =
+		0) ,
+		1 ,
+		0
+		)
+		) /
+		sum(IF(STATUS = '结案' , 1 , 0)) * 100,2) isTimeRate
+		FROM
+		audit_problem_info
+		where 1=1
+		<if test='auditType != null and auditType.size > 0'>
+			AND audit_type in
+			<foreach collection='auditType' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='auditTopics != null and auditTopics.size > 0'>
+			AND audit_topics in
+			<foreach collection='auditTopics' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='eventNumber != null and eventNumber.size > 0'>
+			AND event_number in
+			<foreach collection='eventNumber' index='index' item='item'
+				separator=',' open='(' close=')'>
+				#{item}
+			</foreach>
+		</if>
+		<if test='startTime != "" and startTime !=null'>
+			AND create_date &gt;= #{startTime}
+		</if>
+		<if test='endTime !=null and  endTime != ""'>
+			AND create_date &lt;=#{endTime}
+		</if>
+		GROUP BY
+		abscissa
+	</select>
+
+	<insert id="saveAuditQuestionInfo"
+		parameterType="cn.jwis.qualityworkflow.modules.factoryaudit.bean.AuditQuestionInfo">
+		insert into audit_problem_info
+		(id,problem_number,audit_topics,event_number,problem_type,problem_description,problem_level,occurrence_site,problem_keywords,problem_picture,remark,creator,confirmer,ameliorating_owner,audit_type,confirm_department,owner_department)
+		values
+		(#{id},audit_problem_number(),#{auditTopics},#{eventNumber},#{problemType},#{problemDescription},#{problemLevel},#{occurrenceSite},#{problemKeywords},#{problemPicture},#{remark},#{creator},#{confirmer},#{amelioratingOwner},#{auditType},#{confirmDepartment},#{ownerDepartment})
+	</insert>
+</mapper>

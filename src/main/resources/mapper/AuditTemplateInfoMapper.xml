@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.ipqc.dao.AuditTemplateInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.jwis.qualityworkflow.modules.ipqc.bean.AuditTemplateInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="process" jdbcType="VARCHAR" property="process" />
+    <result column="file_number" jdbcType="VARCHAR" property="fileNumber" />
+    <result column="template_number" jdbcType="VARCHAR" property="templateNumber" />
+    <result column="template_name" jdbcType="VARCHAR" property="templateName" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_person" jdbcType="VARCHAR" property="updatePerson" />
+  </resultMap>
+    <select id="getAuditTemplateList" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryTemplateInfoBean" resultMap="BaseResultMap">
+        select i.* from audit_template_info i where 1=1
+        <if test='modelList != null and modelList.size > 0'>
+            and i.model in
+            <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='workSectionList != null and workSectionList.size > 0'>
+            and i.process in
+            <foreach close=")" collection="workSectionList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='creatorList != null and creatorList.size > 0'>
+            and i.creator in
+            <foreach close=")" collection="creatorList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != null and startTime != ""'>
+            AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+        </if>
+        <if test='endTime != null and endTime !="" '>
+            AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+        </if>
+        order by i.create_date desc limit #{pageNum},#{pageSize}
+    </select>
+
+
+    <select id="getAuditTemplateCount" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryTemplateInfoBean" resultType="Long">
+        select count(1) from audit_template_info i where 1=1
+        <if test='modelList != null and modelList.size > 0'>
+            and i.model in
+            <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='workSectionList != null and workSectionList.size > 0'>
+            and i.process in
+            <foreach close=")" collection="workSectionList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='creatorList != null and creatorList.size > 0'>
+            and i.creator in
+            <foreach close=")" collection="creatorList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != null and startTime != ""'>
+            AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+        </if>
+        <if test='endTime != null and endTime !="" '>
+            AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+        </if>
+    </select>
+
+
+    <select id="exportAuditTemplateInfo" parameterType="cn.jwis.qualityworkflow.modules.ipqc.bean.QueryTemplateInfoBean" resultMap="BaseResultMap">
+        select i.* from audit_template_info i where 1=1
+        <if test='modelList != null and modelList.size > 0'>
+            and i.model in
+            <foreach close=")" collection="modelList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='workSectionList != null and workSectionList.size > 0'>
+            and i.process in
+            <foreach close=")" collection="workSectionList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='creatorList != null and creatorList.size > 0'>
+            and i.creator in
+            <foreach close=")" collection="creatorList" index="index" item="item" open="(" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test='startTime != null and startTime != ""'>
+            AND i.create_date  >= DATE_FORMAT(#{startTime},'%Y-%m-%d 00:00:00')
+        </if>
+        <if test='endTime != null and endTime !="" '>
+            AND i.create_date  &lt;= DATE_FORMAT(#{endTime},'%Y-%m-%d 23:59:59')
+        </if>
+        order by i.create_date desc
+    </select>
+</mapper>

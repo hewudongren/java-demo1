@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>template</title>
+    <style type='text/css'>
+        html {
+            font-size: 14px;
+            overflow-x: initial !important;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            font-size: 1rem;
+            line-height: 1.42857143;
+        }
+
+        #title {
+            padding: 10px 10px 10px 30px;
+        }
+
+        #title,
+        ul {
+            list-style-type: none;
+        }
+
+        #title,
+        ul,
+        li {
+            text-align: left;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 6px 12px;
+        }
+
+        .black{
+            font-weight: 900;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        /*
+                tr:nth-child(2n+1) {
+                    background: aliceblue;
+                }
+
+                tr {
+                    transition: background-color 1s;
+                }
+
+                tr:hover {
+                    background: lightpink;
+                } */
+    </style>
+</head>
+
+<body>
+<div class="title">
+    <p>主题:ESD来料检验结果通知！ <span th:text="${supplier}"></span>+<span th:text="${sampleName}"></span>+<span th:text="${testResults}"></span>+<span th:text="${inspectionDate}"></span></p>
+    <table>
+
+        <tr>
+
+            <td class="black">REQ.No: </td>
+
+            <td class="black">NA</td>
+
+            <td class="black">Submitter: </td>
+
+            <td th:text="${submitter}"></td>
+
+            <td class="black">Requested for:</td>
+
+            <td class="black">NA</td>
+
+        </tr>
+
+        <tr>
+
+            <td class="black">Summary: </td>
+
+            <td colspan="5"><span>ESD来料检验结果通知</span></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="black">Notes: </td>
+
+            <td colspan="5">
+                样 品 名: <span th:text="${sampleName}"></span><br>
+                供 应 商: <span th:text="${supplier}"></span><br>
+                机    型: <span th:text="${model}"></span><br>
+                规格型号: <span th:text="${specificationModel}"></span><br>
+                到货数量: <span th:text="${deliveredQty}"></span><br>
+                需求部门: <span th:text="${demandDepartment}"></span><br>
+                需求提出人: <span th:text="${demandProposer}"></span><br>
+                需求提出时间: <span th:text="${demandDate}"></span><br>
+                检验日期: <span th:text="${inspectionDate}"></span><br>
+                检 验 人: <span th:text="${checker}"></span><br>
+                最终结果: <span th:text="${finalResult}"></span><br>
+               </td>
+        </tr>
+        <tr>
+            <td class="black">Submitted date: </td>
+            <td colspan="5" th:text="${handlerDate}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

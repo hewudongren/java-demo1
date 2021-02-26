@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jwis.qualityworkflow.modules.esd.dao.EsdAuditMainMapper">
+
+  <select id="getEsdAudiMainCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAudiMainSearch" resultType="Long">
+       select  count(1)  from  esd_audit_main where  1=1
+       <if test="auditTypes != null and auditTypes.size >0">
+         AND audit_type in
+         <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+           #{item}
+         </foreach>
+       </if>
+       <if test="documentNumbers != null and documentNumbers.size >0">
+         AND document_number in
+         <foreach collection='documentNumbers' index='index' item='item' separator=',' open='(' close=')'>
+           #{item}
+         </foreach>
+       </if>
+       <if test="creators != null and creators.size >0">
+         AND creator in
+         <foreach collection='creators' index='index' item='item' separator=',' open='(' close=')'>
+           #{item}
+         </foreach>
+       </if>
+  </select>
+    <select id="getEsdAudiMainList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAudiMainSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditMain">
+        select  *  from  esd_audit_main where  1=1
+        <if test="auditTypes != null and auditTypes.size >0">
+            AND audit_type in
+            <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="documentNumbers != null and documentNumbers.size >0">
+            AND document_number in
+            <foreach collection='documentNumbers' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        <if test="creators != null and creators.size >0">
+            AND creator in
+            <foreach collection='creators' index='index' item='item' separator=',' open='(' close=')'>
+                #{item}
+            </foreach>
+        </if>
+        order  by update_date desc
+        <if test="page != null and size != null">
+            limit #{page},#{size}
+        </if>
+
+    </select>
+
+  <select id="getEsdAuditCount" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditSearch" resultType="Long">
+       select  count(1)  from  esd_audit_list_main where  1=1
+      <if test="auditTypes != null and auditTypes.size >0">
+          AND audit_type in
+          <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="documentNumbers != null and documentNumbers.size >0">
+          AND document_number in
+          <foreach collection='documentNumbers' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="frequencys != null and frequencys.size >0">
+          AND frequency in
+          <foreach collection='frequencys' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="lines != null and lines.size >0">
+          AND line in
+          <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="auditers != null and auditers.size >0">
+          AND auditer in
+          <foreach collection='auditers' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="assignee != null and assignee != ''">
+          and creator = #{assignee}
+      </if>
+      <if test="startTime != null and startTime != ''">
+          and  audit_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+      </if>
+      <if test="endTime != null and endTime != ''">
+          and  audit_date &lt;=  DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+      </if>
+  </select>
+
+  <select id="getEsdAuditList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditSearch" resultType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditListMain">
+    select  *  from  esd_audit_list_main where  1=1
+    <if test="auditTypes != null and auditTypes.size >0">
+      AND audit_type in
+      <foreach collection='auditTypes' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="documentNumbers != null and documentNumbers.size >0">
+      AND document_number in
+      <foreach collection='documentNumbers' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+    <if test="frequencys != null and frequencys.size >0">
+      AND frequency in
+      <foreach collection='frequencys' index='index' item='item' separator=',' open='(' close=')'>
+        #{item}
+      </foreach>
+    </if>
+      <if test="lines != null and lines.size >0">
+          AND line in
+          <foreach collection='lines' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="auditers != null and auditers.size >0">
+          AND auditer in
+          <foreach collection='auditers' index='index' item='item' separator=',' open='(' close=')'>
+              #{item}
+          </foreach>
+      </if>
+      <if test="startTime != null and startTime != ''">
+         and  audit_date &gt;= DATE_FORMAT(#{startTime},'%Y-%m-%d %T')
+      </if>
+      <if test="endTime != null and endTime != ''">
+         and  audit_date &lt;=  DATE_FORMAT(#{endTime},'%Y-%m-%d %T')
+      </if>
+      <if test="assignee != null and assignee != ''">
+          and creator = #{assignee}
+      </if>
+      order  by update_date desc
+      <if test="page != null and size != null">
+      limit #{page},#{size}
+     </if>
+
+  </select>
+
+  <insert id="saveEsdAuditMain" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditMain">
+     insert into esd_audit_main (id, audit_type,document_number,document_name,remark,creator)
+        values (#{id},#{auditType},#{documentNumber},#{documentName},#{remark},#{creator})
+  </insert>
+
+  <insert id="saveEsdAuditSecondary" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditSecondary">
+     insert into esd_audit_secondary (id, audit_object,specific_requirement,problem_classification,grade_problem,
+        hsfnc,main_id)
+        values (#{id},#{auditObject},#{specificRequirement},#{problemClassification},#{gradeProblem},#{hsfnc},
+        #{mainId})
+  </insert>
+
+  <update id="updateEsdAuditMain" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditMain">
+       update esd_audit_main set remark =#{remark},update_date=#{updateDate} where  id =#{id}
+  </update>
+
+    <insert id="saveEsdAuditList" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditListMain">
+     insert into esd_audit_list_main (id, audit_type,document_number,document_name,audit_date,frequency,
+        line,auditer,audit_number,qualified_number,qualified_rate,remarks,creator)
+        values (#{id},#{auditType},#{documentNumber},#{documentName},#{auditDate},#{frequency},#{line},
+        #{auditer},#{auditNumber},#{qualifiedNumber},#{qualifiedRate},#{remarks},#{creator})
+  </insert>
+
+    <update id="updateEsdAuditListSecondary" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditListSecondary">
+        update esd_audit_list_secondary set final_result = #{finalResult},flag=#{flag}  where  id =#{id}
+    </update>
+
+    <update id="updateEsdAuditListMain" parameterType="cn.jwis.qualityworkflow.modules.esd.bean.EsdAuditListMain">
+        update esd_audit_list_main set qualified_number = #{qualifiedNumber},qualified_rate = #{qualifiedRate}  where  id =#{id}
+    </update>
+
+
+</mapper>

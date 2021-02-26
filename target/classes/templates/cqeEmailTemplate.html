@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>template</title>
+    <style type='text/css'>
+        html {
+            font-size: 14px;
+            overflow-x: initial !important;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: auto;
+            bottom: 0px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            font-size: 1rem;
+            line-height: 1.42857143;
+        }
+
+        #title {
+            padding: 10px 10px 10px 30px;
+        }
+
+        #title,
+        ul {
+            list-style-type: none;
+        }
+
+        #title,
+        ul,
+        li {
+            text-align: left;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #d6d6d6;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 6px 12px;
+        }
+
+        tr:nth-child(2n+1) {
+            background: aliceblue;
+        }
+
+        tr {
+            transition: background-color 1s;
+        }
+
+        tr:hover {
+            background: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+<div class="title">
+    <ul>
+        <li>机型：<span th:text="${model}"></span></li>
+        <li>检验方式：<span th:text="${inspection_mode}"></span></li>
+        <li>来料生产日期：<span th:text="${material_production_date}"></span></li>
+        <li>失效日期：<span th:text="${failure_date}"></span></li>
+        <li>是否HF(环保)标识：<span th:text="${hf_mark}"></span></li>
+        <li>检验结果: 不合格</li>
+        <li>CQE判定结果: 不合格</li>
+        <li>处理方式: <span th:text="${processing_mode}"></span></li>
+        <li>不良详情：</li>
+    </ul>
+    <figure>
+        <table th:if="${flag}">
+            <thead>
+            <tr>
+                <th><span>检验项目</span></th>
+                <th><span>不良类别</span></th>
+                <th><span>不良数量</span></th>
+                <th><span>CQE判定数量</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="info : ${list}">
+                <td th:text="${info.inspection_item}">B</td>
+                <td th:text="${info.defect_detail}"></td>
+                <td th:text="${info.defect_quantity}"></td>
+                <td th:text="${info.cqe_data}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </figure>
+    <div style="padding: 10px 10px 10px 30px;">详情:
+        <a th:href="${url}"><span th:text="${url}"></span></a>
+    </div>
+</div>
+</body>
+</html>

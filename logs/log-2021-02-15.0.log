@@ -1,0 +1,1177 @@
+2021-02-15 11:23:00.726 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[26]  No CONFIGURL set in system environment.example:http://0.0.0.0:14200/configCenter/findConfig
+2021-02-15 11:23:00.729 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[29]  No APPENV set in system environment.Example:dev or test or pre , refenrence the config center.
+2021-02-15 11:23:00.729 INFO  cn.jwis.configration.clientUtil.ConfigCenterHelper[40]  Loading config by :http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties
+2021-02-15 11:23:00.730 INFO  cn.jwis.configration.clientUtil.HttpClientUtil[51]  Http Request:http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties
+2021-02-15 11:23:05.189 ERROR cn.jwis.configration.clientUtil.HttpClientUtil[77]  send Http Request to:http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties ,has errors:Connect to localhost:14200 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2021-02-15 11:23:05.189 INFO  cn.jwis.configration.clientUtil.ConfigCenterHelper[43]  Get config :
+2021-02-15 11:23:05.251 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[56]  null
+2021-02-15 11:23:05.847 INFO  cn.jwis.qualityworkflow.Application[50]  Starting Application on WIN-DGKBUJT2MIH with PID 12580 (E:\java-server\quality-workflow-service\target\classes started by EDZ in E:\java-server\quality-workflow-service)
+2021-02-15 11:23:05.848 DEBUG cn.jwis.qualityworkflow.Application[53]  Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2021-02-15 11:23:05.849 INFO  cn.jwis.qualityworkflow.Application[679]  The following profiles are active: dev
+2021-02-15 11:23:09.736 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[330]  Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$b64cc0b9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-15 11:23:09.797 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[330]  Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$efe1028b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-15 11:23:10.275 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer[90]  Tomcat initialized with port(s): 8115 (http)
+2021-02-15 11:23:10.291 INFO  org.apache.coyote.http11.Http11NioProtocol[173]  Initializing ProtocolHandler ["http-nio-8115"]
+2021-02-15 11:23:10.291 INFO  org.apache.catalina.core.StandardService[173]  Starting service [Tomcat]
+2021-02-15 11:23:10.291 INFO  org.apache.catalina.core.StandardEngine[173]  Starting Servlet Engine: Apache Tomcat/9.0.12
+2021-02-15 11:23:10.307 INFO  org.apache.catalina.core.AprLifecycleListener[173]  The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_192\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.8.0_192\bin;F:\java\apache-maven-3.6.0\bin;F:\java\mysql-5.7.11-winx64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Users\EDZ\AppData\Local\Microsoft\WindowsApps;C:\Users\EDZ\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;.]
+2021-02-15 11:23:10.385 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/][173]  Initializing Spring embedded WebApplicationContext
+2021-02-15 11:23:10.385 INFO  org.springframework.web.context.ContextLoader[285]  Root WebApplicationContext: initialization completed in 4465 ms
+2021-02-15 11:23:10.416 INFO  o.s.boot.web.servlet.ServletRegistrationBean[186]  Servlet dispatcherServlet mapped to [/]
+2021-02-15 11:23:10.416 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-02-15 11:23:10.416 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-02-15 11:23:10.416 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'formContentFilter' to: [/*]
+2021-02-15 11:23:10.416 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'requestContextFilter' to: [/*]
+2021-02-15 11:23:12.777 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor[171]  Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-15 11:23:13.113 INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper[120]  Context refreshed
+2021-02-15 11:23:13.128 INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper[123]  Found 1 custom documentation plugin(s)
+2021-02-15 11:23:13.128 INFO  s.d.spring.web.scanners.ApiListingReferenceScanner[41]  Scanning for api listing references
+2021-02-15 11:23:13.394 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_1
+2021-02-15 11:23:13.660 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalBolaUsingGET_1
+2021-02-15 11:23:13.660 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalListUsingPOST_1
+2021-02-15 11:23:13.660 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllAndCloseUsingPOST_1
+2021-02-15 11:23:13.660 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllDataUsingPOST_1
+2021-02-15 11:23:13.675 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getBlackDetailsUsingPOST_1
+2021-02-15 11:23:13.681 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCloseUsingPOST_1
+2021-02-15 11:23:13.686 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardNotCloseUsingPOST_1
+2021-02-15 11:23:13.690 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueUsingPOST_1
+2021-02-15 11:23:13.694 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalBolaUsingGET_1
+2021-02-15 11:23:13.698 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalListUsingPOST_1
+2021-02-15 11:23:13.703 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_2
+2021-02-15 11:23:13.836 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_1
+2021-02-15 11:23:13.849 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_1
+2021-02-15 11:23:13.864 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_1
+2021-02-15 11:23:13.881 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_3
+2021-02-15 11:23:13.892 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_2
+2021-02-15 11:23:13.900 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_2
+2021-02-15 11:23:13.910 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEsdAdministrationUsingPOST_1
+2021-02-15 11:23:13.932 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_3
+2021-02-15 11:23:13.975 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_4
+2021-02-15 11:23:13.986 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_4
+2021-02-15 11:23:14.001 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_3
+2021-02-15 11:23:14.038 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEsdInStanInfoTemplateUsingGET_1
+2021-02-15 11:23:14.116 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_5
+2021-02-15 11:23:14.132 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_5
+2021-02-15 11:23:14.147 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_6
+2021-02-15 11:23:14.163 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: findTableNameBySampleNameUsingGET_1
+2021-02-15 11:23:14.194 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: commonExportTemplateUsingPOST_1
+2021-02-15 11:23:14.210 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_7
+2021-02-15 11:23:14.210 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEcnInfoUsingPOST_1
+2021-02-15 11:23:14.210 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_1
+2021-02-15 11:23:14.210 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_4
+2021-02-15 11:23:14.225 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_1
+2021-02-15 11:23:14.225 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_2
+2021-02-15 11:23:14.241 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportDetailsUsingPOST_1
+2021-02-15 11:23:14.241 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalBolaUsingGET_2
+2021-02-15 11:23:14.241 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalListUsingPOST_2
+2021-02-15 11:23:14.241 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllAndCloseUsingPOST_2
+2021-02-15 11:23:14.257 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllDataUsingPOST_2
+2021-02-15 11:23:14.257 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCloseUsingPOST_2
+2021-02-15 11:23:14.257 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardNotCloseUsingPOST_2
+2021-02-15 11:23:14.272 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueUsingPOST_2
+2021-02-15 11:23:14.272 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalBolaUsingGET_2
+2021-02-15 11:23:14.288 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalListUsingPOST_2
+2021-02-15 11:23:14.288 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_6
+2021-02-15 11:23:14.335 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_8
+2021-02-15 11:23:14.350 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_7
+2021-02-15 11:23:14.381 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportInfoUsingPOST_1
+2021-02-15 11:23:14.381 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAddCountUsingPOST_1
+2021-02-15 11:23:14.397 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCountUsingPOST_1
+2021-02-15 11:23:14.397 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_1
+2021-02-15 11:23:14.397 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_5
+2021-02-15 11:23:14.413 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueCountUsingPOST_1
+2021-02-15 11:23:14.413 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getProcessingCountUsingPOST_1
+2021-02-15 11:23:14.413 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_2
+2021-02-15 11:23:14.428 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: insertUsingPOST_1
+2021-02-15 11:23:14.428 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_3
+2021-02-15 11:23:14.444 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_2
+2021-02-15 11:23:14.460 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_3
+2021-02-15 11:23:14.460 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: insertUsingPOST_2
+2021-02-15 11:23:14.475 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAuditListInfoByIdUsingPOST_1
+2021-02-15 11:23:14.491 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_9
+2021-02-15 11:23:14.506 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingPOST_1
+2021-02-15 11:23:14.522 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_4
+2021-02-15 11:23:14.522 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_10
+2021-02-15 11:23:14.553 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_8
+2021-02-15 11:23:14.553 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_6
+2021-02-15 11:23:14.616 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_11
+2021-02-15 11:23:14.631 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_9
+2021-02-15 11:23:14.631 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_7
+2021-02-15 11:23:14.647 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getSuperiorUsingGET_1
+2021-02-15 11:23:14.684 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_12
+2021-02-15 11:23:14.703 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_2
+2021-02-15 11:23:14.705 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_8
+2021-02-15 11:23:14.715 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_4
+2021-02-15 11:23:14.731 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_5
+2021-02-15 11:23:14.749 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_13
+2021-02-15 11:23:14.756 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportInfoUsingPOST_2
+2021-02-15 11:23:14.759 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_3
+2021-02-15 11:23:14.763 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_3
+2021-02-15 11:23:14.766 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_5
+2021-02-15 11:23:14.769 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_6
+2021-02-15 11:23:14.778 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getProgressUsingGET_1
+2021-02-15 11:23:14.861 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportTraceablityManUsingPOST_1
+2021-02-15 11:23:14.896 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getSuperiorUsingGET_2
+2021-02-15 11:23:14.944 INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler[171]  Initializing ExecutorService
+2021-02-15 11:23:14.947 INFO  c.j.qualityworkflow.modules.ipqc.job.ipqcMailJob[27]  查询IPQC超时任务
+2021-02-15 11:23:14.953 INFO  org.apache.coyote.http11.Http11NioProtocol[173]  Starting ProtocolHandler ["http-nio-8115"]
+2021-02-15 11:23:14.962 INFO  org.apache.tomcat.util.net.NioSelectorPool[173]  Using a shared selector for servlet write/read
+2021-02-15 11:23:14.965 INFO  com.zaxxer.hikari.HikariDataSource[110]  HikariPool-1 - Starting...
+2021-02-15 11:23:14.966 WARN  com.zaxxer.hikari.util.DriverDataSource[68]  Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-15 11:23:14.975 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer[204]  Tomcat started on port(s): 8115 (http) with context path ''
+2021-02-15 11:23:14.978 INFO  cn.jwis.qualityworkflow.Application[59]  Started Application in 9.632 seconds (JVM running for 18.484)
+2021-02-15 11:23:15.197 INFO  com.zaxxer.hikari.HikariDataSource[123]  HikariPool-1 - Start completed.
+2021-02-15 11:23:15.213 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '节假日' 
+2021-02-15 11:23:15.229 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==> Parameters: 
+2021-02-15 11:23:15.260 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  <==      Total: 6
+2021-02-15 11:23:15.260 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 11:23:15.260 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==> Parameters: IPQCAuditProcess(String), 24(Integer)
+2021-02-15 11:23:15.291 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 11:23:15.291 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: Line Qualify(String), 文件收集(String), 2(Integer)
+2021-02-15 11:23:15.307 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  <==      Total: 28
+2021-02-15 11:23:15.307 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 11:23:15.307 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: FactoryAuditProcess(String), 部门审核(String), 24(Integer)
+2021-02-15 11:23:15.322 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 12
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '补班' 
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==> Parameters: 
+2021-02-15 11:23:15.322 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 4
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868320843300864(String)
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  <==      Total: 4
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.322 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945645047808(String)
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192540470837248(String)
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==>  Preparing: select * from qims_lt_standard_info 
+2021-02-15 11:23:15.338 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==> Parameters: 
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868347422605312(String)
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  <==      Total: 8
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192619508301824(String)
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.354 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868393815801856(String)
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1299240419787276288(String)
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303937438065885184(String)
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.369 INFO  c.j.qualityworkflow.modules.qims.job.qimsMailJob[47]  查询黑色问题超过LT的信息
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==>  Preparing: select * from task_record where task_name in('初步原因分析','根本原因分析','根本原因审核') and task_state is null and template_key='QIMSBLACK' 
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==> Parameters: 
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939538460082176(String)
+2021-02-15 11:23:15.385 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.385 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.385 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939599889858560(String)
+2021-02-15 11:23:15.400 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  <==      Total: 16
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286902446076985344(String)
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306059696263659520(String)
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.416 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306155886347026432(String)
+2021-02-15 11:23:15.432 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.432 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.432 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306201167000240128(String)
+2021-02-15 11:23:15.447 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:15.447 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:15.447 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013106458263552(String)
+2021-02-15 11:23:15.447 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=hualanlan happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=qualityadmin happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=dz_gyb1 happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: dz_gyb1(String), COMMON(String)
+2021-02-15 11:23:20.425 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 11:23:20.441 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.441 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.441 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.441 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.441 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 11:23:20.457 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=kiween happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 11:23:20.457 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.457 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013110702899200(String)
+2021-02-15 11:23:20.457 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 1
+2021-02-15 11:23:20.457 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.740 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 11:23:20.740 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  workflow3 email is null
+2021-02-15 11:23:20.740 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 11:23:20.740 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb2 email is jian.song@jwis.cn
+2021-02-15 11:23:20.740 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.740 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.740 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.740 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 11:23:20.740 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1339877445209161728(String)
+2021-02-15 11:23:20.740 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945682796544(String)
+2021-02-15 11:23:20.748 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.748 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.748 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 11:23:20.749 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.749 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945716350976(String)
+2021-02-15 11:23:20.774 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.781 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  zhouxianling email is 
+2021-02-15 11:23:20.781 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 11:23:20.781 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 11:23:20.782 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.782 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 11:23:20.782 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013113928318976(String)
+2021-02-15 11:23:20.782 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 11:23:20.787 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.788 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286904434760089600(String)
+2021-02-15 11:23:20.789 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.790 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 11:23:20.794 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.803 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 11:23:20.803 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.803 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 11:23:20.810 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.812 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 11:23:20.812 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.812 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 11:23:20.819 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  gupp2 email is null
+2021-02-15 11:23:20.819 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.819 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 11:23:20.846 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 11:23:20.847 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.847 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193219738370048(String)
+2021-02-15 11:23:20.849 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 0
+2021-02-15 11:23:20.849 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.849 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.850 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 11:23:20.853 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.853 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.854 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193220166189056(String)
+2021-02-15 11:23:20.858 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 0
+2021-02-15 11:23:20.860 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.864 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.864 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286916730144161792(String)
+2021-02-15 11:23:20.872 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 11:23:20.872 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.872 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.872 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013116927246336(String)
+2021-02-15 11:23:20.878 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 11:23:20.882 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 11:23:20.882 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.882 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 11:23:20.910 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  gupp2 email is null
+2021-02-15 11:23:20.910 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.910 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.910 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 11:23:20.918 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 0
+2021-02-15 11:23:20.918 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.918 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 11:23:20.919 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  kiween email is 
+2021-02-15 11:23:20.919 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.919 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1309046852858937344(String)
+2021-02-15 11:23:20.924 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 0
+2021-02-15 11:23:20.924 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 11:23:20.928 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.928 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 11:23:20.928 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1287933861786812416(String)
+2021-02-15 11:23:20.928 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.928 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193707351375872(String)
+2021-02-15 11:23:20.936 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.936 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.936 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:20.937 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193707376541696(String)
+2021-02-15 11:23:20.945 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  codisan email is kelvin@jwis.cn
+2021-02-15 11:23:20.946 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 11:23:20.946 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 11:23:20.953 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:20.977 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 11:23:20.977 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.977 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 11:23:20.978 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 11:23:20.984 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:20.985 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.985 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 11:23:20.991 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 11:23:20.991 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:20.991 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 11:23:20.992 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 1
+2021-02-15 11:23:21.000 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:21.022 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  workflow3 email is null
+2021-02-15 11:23:21.038 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 11:23:21.038 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 11:23:21.038 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1315248790789160960(String)
+2021-02-15 11:23:21.053 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 11:23:21.069 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  zhouxianling email is 
+2021-02-15 11:23:21.084 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb1 email is test@jwis.cn
+2021-02-15 11:23:21.084 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 11:23:21.084 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: dz_gyb1(String), COMMON(String)
+2021-02-15 11:23:21.084 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==>  Preparing: SELECT * from task_record WHERE id = ? 
+2021-02-15 11:23:21.084 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==> Parameters: 1287933861786812416(String)
+2021-02-15 11:23:21.100 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 11:23:21.116 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  <==      Total: 1
+2021-02-15 11:23:21.116 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 11:23:21.116 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 11:23:21.116 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 11:23:21.131 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb2 email is jian.song@jwis.cn
+2021-02-15 11:23:21.131 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 11:23:21.131 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 11:23:21.131 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 11:23:21.131 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==>  Preparing: SELECT q.*,ar.processInstanceId ,ar.taskId,ar.assignee,ar.taskState,ar.taskName FROM line_qualify_info q,(SELECT workflow_business_id, process_instance_id as processInstanceId,task_id as taskId,assignee,task_state as taskState,task_name taskName FROM task_record WHERE task_id=?) ar where q.id=ar.workflow_business_id 
+2021-02-15 11:23:21.131 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==> Parameters: 5506556(String)
+2021-02-15 11:23:21.147 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  <==      Total: 1
+2021-02-15 11:23:21.194 INFO  cn.jwis.qualityworkflow.util.EmailService[71]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn
+2021-02-15 11:23:21.194 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to kelvin@jwis.cn fail, because null
+2021-02-15 11:23:21.194 INFO  cn.jwis.qualityworkflow.util.EmailService[69]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn and make a copy for [jian.song@jwis.cn]
+2021-02-15 11:23:21.194 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn fail, because null
+2021-02-15 11:23:22.054 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendEmailTohandler(AuditQuestionServiceImpl.java:457)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendOverTimeMail(AuditQuestionServiceImpl.java:434)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$FastClassBySpringCGLIB$$b4134941.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$EnhancerBySpringCGLIB$$7a8da3ce.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.job.AuditQuestionMailJob.sendOverTimeMail(AuditQuestionMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 11:23:22.054 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.qimsSendMail(QimsSendMailServiceImpl.java:90)
+	at cn.jwis.qualityworkflow.modules.qims.job.qimsMailJob.qimsSendMail(qimsMailJob.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 11:23:22.054 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (kelvin@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl.qimsSendMail(AuditQualityProblemServiceImpl.java:321)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$FastClassBySpringCGLIB$$15ff325f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$EnhancerBySpringCGLIB$$86c501e8.qimsSendMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.ipqc.job.ipqcMailJob.qimsSendMail(ipqcMailJob.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 11:23:22.103 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (jian.song@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendEmailTohandler(LineQualifyServiceImpl.java:627)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendOverTimeMail(LineQualifyServiceImpl.java:604)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$FastClassBySpringCGLIB$$4ca6f597.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$EnhancerBySpringCGLIB$$ce340e90.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.linequalify.job.LineQualifyMailJob.sendOverTimeMail(LineQualifyMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:09:08.569 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[26]  No CONFIGURL set in system environment.example:http://0.0.0.0:14200/configCenter/findConfig
+2021-02-15 23:09:08.590 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[29]  No APPENV set in system environment.Example:dev or test or pre , refenrence the config center.
+2021-02-15 23:09:08.590 INFO  cn.jwis.configration.clientUtil.ConfigCenterHelper[40]  Loading config by :http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties
+2021-02-15 23:09:08.592 INFO  cn.jwis.configration.clientUtil.HttpClientUtil[51]  Http Request:http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties
+2021-02-15 23:09:12.930 ERROR cn.jwis.configration.clientUtil.HttpClientUtil[77]  send Http Request to:http://localhost:14200/configCenter/findConfig?side=server&serviceName=pqm-quality-workflow-service&env=null&configType=properties ,has errors:Connect to localhost:14200 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
+2021-02-15 23:09:12.930 INFO  cn.jwis.configration.clientUtil.ConfigCenterHelper[43]  Get config :
+2021-02-15 23:09:13.075 ERROR cn.jwis.configration.clientUtil.ConfigCenterHelper[56]  null
+2021-02-15 23:09:13.433 INFO  cn.jwis.qualityworkflow.Application[50]  Starting Application on WIN-DGKBUJT2MIH with PID 14744 (E:\java-server\quality-workflow-service\target\classes started by EDZ in E:\java-server\quality-workflow-service)
+2021-02-15 23:09:13.434 DEBUG cn.jwis.qualityworkflow.Application[53]  Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2021-02-15 23:09:13.435 INFO  cn.jwis.qualityworkflow.Application[679]  The following profiles are active: dev
+2021-02-15 23:09:17.159 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[330]  Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$f5ee56ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-15 23:09:17.220 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker[330]  Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2f82989c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-15 23:09:17.645 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer[90]  Tomcat initialized with port(s): 8115 (http)
+2021-02-15 23:09:17.654 INFO  org.apache.coyote.http11.Http11NioProtocol[173]  Initializing ProtocolHandler ["http-nio-8115"]
+2021-02-15 23:09:17.661 INFO  org.apache.catalina.core.StandardService[173]  Starting service [Tomcat]
+2021-02-15 23:09:17.661 INFO  org.apache.catalina.core.StandardEngine[173]  Starting Servlet Engine: Apache Tomcat/9.0.12
+2021-02-15 23:09:17.665 INFO  org.apache.catalina.core.AprLifecycleListener[173]  The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_192\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Java\jdk1.8.0_192\bin;F:\java\apache-maven-3.6.0\bin;F:\java\mysql-5.7.11-winx64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Users\EDZ\AppData\Local\Microsoft\WindowsApps;C:\Users\EDZ\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;.]
+2021-02-15 23:09:17.742 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/][173]  Initializing Spring embedded WebApplicationContext
+2021-02-15 23:09:17.742 INFO  org.springframework.web.context.ContextLoader[285]  Root WebApplicationContext: initialization completed in 4279 ms
+2021-02-15 23:09:17.769 INFO  o.s.boot.web.servlet.ServletRegistrationBean[186]  Servlet dispatcherServlet mapped to [/]
+2021-02-15 23:09:17.772 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-02-15 23:09:17.773 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-02-15 23:09:17.773 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'formContentFilter' to: [/*]
+2021-02-15 23:09:17.773 INFO  o.s.boot.web.servlet.FilterRegistrationBean[248]  Mapping filter: 'requestContextFilter' to: [/*]
+2021-02-15 23:09:19.976 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor[171]  Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-15 23:09:20.309 INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper[120]  Context refreshed
+2021-02-15 23:09:20.322 INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper[123]  Found 1 custom documentation plugin(s)
+2021-02-15 23:09:20.333 INFO  s.d.spring.web.scanners.ApiListingReferenceScanner[41]  Scanning for api listing references
+2021-02-15 23:09:20.593 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_1
+2021-02-15 23:09:20.840 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalBolaUsingGET_1
+2021-02-15 23:09:20.844 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalListUsingPOST_1
+2021-02-15 23:09:20.848 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllAndCloseUsingPOST_1
+2021-02-15 23:09:20.851 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllDataUsingPOST_1
+2021-02-15 23:09:20.856 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getBlackDetailsUsingPOST_1
+2021-02-15 23:09:20.861 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCloseUsingPOST_1
+2021-02-15 23:09:20.865 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardNotCloseUsingPOST_1
+2021-02-15 23:09:20.869 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueUsingPOST_1
+2021-02-15 23:09:20.873 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalBolaUsingGET_1
+2021-02-15 23:09:20.877 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalListUsingPOST_1
+2021-02-15 23:09:20.886 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_2
+2021-02-15 23:09:20.910 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_1
+2021-02-15 23:09:20.921 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_1
+2021-02-15 23:09:20.937 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_1
+2021-02-15 23:09:20.950 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_3
+2021-02-15 23:09:20.956 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_2
+2021-02-15 23:09:20.962 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_2
+2021-02-15 23:09:20.972 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEsdAdministrationUsingPOST_1
+2021-02-15 23:09:20.991 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_3
+2021-02-15 23:09:21.031 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_4
+2021-02-15 23:09:21.041 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_4
+2021-02-15 23:09:21.057 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_3
+2021-02-15 23:09:21.104 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEsdInStanInfoTemplateUsingGET_1
+2021-02-15 23:09:21.179 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_5
+2021-02-15 23:09:21.185 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_5
+2021-02-15 23:09:21.208 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_6
+2021-02-15 23:09:21.219 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: findTableNameBySampleNameUsingGET_1
+2021-02-15 23:09:21.243 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: commonExportTemplateUsingPOST_1
+2021-02-15 23:09:21.256 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_7
+2021-02-15 23:09:21.262 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportEcnInfoUsingPOST_1
+2021-02-15 23:09:21.264 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_1
+2021-02-15 23:09:21.265 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_4
+2021-02-15 23:09:21.271 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_1
+2021-02-15 23:09:21.274 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_2
+2021-02-15 23:09:21.287 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportDetailsUsingPOST_1
+2021-02-15 23:09:21.291 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalBolaUsingGET_2
+2021-02-15 23:09:21.294 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportUnseasonalListUsingPOST_2
+2021-02-15 23:09:21.299 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllAndCloseUsingPOST_2
+2021-02-15 23:09:21.302 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAllDataUsingPOST_2
+2021-02-15 23:09:21.307 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCloseUsingPOST_2
+2021-02-15 23:09:21.311 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardNotCloseUsingPOST_2
+2021-02-15 23:09:21.318 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueUsingPOST_2
+2021-02-15 23:09:21.322 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalBolaUsingGET_2
+2021-02-15 23:09:21.326 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getUnseasonalListUsingPOST_2
+2021-02-15 23:09:21.338 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_6
+2021-02-15 23:09:21.369 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_8
+2021-02-15 23:09:21.387 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_7
+2021-02-15 23:09:21.413 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportInfoUsingPOST_1
+2021-02-15 23:09:21.416 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAddCountUsingPOST_1
+2021-02-15 23:09:21.422 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDashBoardCountUsingPOST_1
+2021-02-15 23:09:21.432 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_1
+2021-02-15 23:09:21.434 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_5
+2021-02-15 23:09:21.441 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getOverdueCountUsingPOST_1
+2021-02-15 23:09:21.445 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getProcessingCountUsingPOST_1
+2021-02-15 23:09:21.448 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_2
+2021-02-15 23:09:21.457 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: insertUsingPOST_1
+2021-02-15 23:09:21.462 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_3
+2021-02-15 23:09:21.475 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_2
+2021-02-15 23:09:21.481 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_3
+2021-02-15 23:09:21.488 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: insertUsingPOST_2
+2021-02-15 23:09:21.498 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getAuditListInfoByIdUsingPOST_1
+2021-02-15 23:09:21.521 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_9
+2021-02-15 23:09:21.533 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingPOST_1
+2021-02-15 23:09:21.548 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_4
+2021-02-15 23:09:21.553 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_10
+2021-02-15 23:09:21.573 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_8
+2021-02-15 23:09:21.577 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_6
+2021-02-15 23:09:21.645 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_11
+2021-02-15 23:09:21.663 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDropdownValueUsingGET_9
+2021-02-15 23:09:21.666 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_7
+2021-02-15 23:09:21.677 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getSuperiorUsingGET_1
+2021-02-15 23:09:21.702 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_12
+2021-02-15 23:09:21.726 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_2
+2021-02-15 23:09:21.727 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getLatestRecordContentUsingGET_8
+2021-02-15 23:09:21.736 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_4
+2021-02-15 23:09:21.750 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_5
+2021-02-15 23:09:21.767 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: confirmUsingPOST_13
+2021-02-15 23:09:21.774 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportInfoUsingPOST_2
+2021-02-15 23:09:21.777 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getDetailednessInfoUsingPOST_3
+2021-02-15 23:09:21.782 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getInfoListUsingPOST_3
+2021-02-15 23:09:21.785 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getPullDownValueUsingGET_5
+2021-02-15 23:09:21.787 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: saveRecordContentUsingPOST_6
+2021-02-15 23:09:21.795 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getProgressUsingGET_1
+2021-02-15 23:09:21.867 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: exportTraceablityManUsingPOST_1
+2021-02-15 23:09:21.904 INFO  s.d.s.w.r.operation.CachingOperationNameGenerator[40]  Generating unique operation named: getSuperiorUsingGET_2
+2021-02-15 23:09:21.952 INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler[171]  Initializing ExecutorService
+2021-02-15 23:09:21.955 INFO  c.j.qualityworkflow.modules.ipqc.job.ipqcMailJob[27]  查询IPQC超时任务
+2021-02-15 23:09:21.960 INFO  org.apache.coyote.http11.Http11NioProtocol[173]  Starting ProtocolHandler ["http-nio-8115"]
+2021-02-15 23:09:21.969 INFO  org.apache.tomcat.util.net.NioSelectorPool[173]  Using a shared selector for servlet write/read
+2021-02-15 23:09:21.974 INFO  com.zaxxer.hikari.HikariDataSource[110]  HikariPool-1 - Starting...
+2021-02-15 23:09:21.975 WARN  com.zaxxer.hikari.util.DriverDataSource[68]  Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-15 23:09:22.074 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer[204]  Tomcat started on port(s): 8115 (http) with context path ''
+2021-02-15 23:09:22.077 INFO  cn.jwis.qualityworkflow.Application[59]  Started Application in 9.0 seconds (JVM running for 16.429)
+2021-02-15 23:09:22.247 INFO  com.zaxxer.hikari.HikariDataSource[123]  HikariPool-1 - Start completed.
+2021-02-15 23:09:22.254 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '节假日' 
+2021-02-15 23:09:22.269 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==> Parameters: 
+2021-02-15 23:09:22.292 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  <==      Total: 6
+2021-02-15 23:09:22.294 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:09:22.294 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==> Parameters: IPQCAuditProcess(String), 24(Integer)
+2021-02-15 23:09:22.312 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:09:22.312 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: FactoryAuditProcess(String), 部门审核(String), 24(Integer)
+2021-02-15 23:09:22.315 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  <==      Total: 28
+2021-02-15 23:09:22.315 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:09:22.316 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: Line Qualify(String), 文件收集(String), 2(Integer)
+2021-02-15 23:09:22.328 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 4
+2021-02-15 23:09:22.328 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '补班' 
+2021-02-15 23:09:22.328 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==> Parameters: 
+2021-02-15 23:09:22.329 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 12
+2021-02-15 23:09:22.329 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.329 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868320843300864(String)
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  <==      Total: 4
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192540470837248(String)
+2021-02-15 23:09:22.337 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945645047808(String)
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==>  Preparing: select * from qims_lt_standard_info 
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==> Parameters: 
+2021-02-15 23:09:22.347 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868347422605312(String)
+2021-02-15 23:09:22.359 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.359 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.359 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  <==      Total: 8
+2021-02-15 23:09:22.359 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192619508301824(String)
+2021-02-15 23:09:22.359 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.360 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868393815801856(String)
+2021-02-15 23:09:22.367 INFO  c.j.qualityworkflow.modules.qims.job.qimsMailJob[47]  查询黑色问题超过LT的信息
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==>  Preparing: select * from task_record where task_name in('初步原因分析','根本原因分析','根本原因审核') and task_state is null and template_key='QIMSBLACK' 
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==> Parameters: 
+2021-02-15 23:09:22.369 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1299240419787276288(String)
+2021-02-15 23:09:22.376 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.377 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.377 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303937438065885184(String)
+2021-02-15 23:09:22.385 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.386 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.386 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939538460082176(String)
+2021-02-15 23:09:22.386 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  <==      Total: 16
+2021-02-15 23:09:22.396 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.397 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.398 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939599889858560(String)
+2021-02-15 23:09:22.405 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.405 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.406 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306059696263659520(String)
+2021-02-15 23:09:22.406 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.407 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286902446076985344(String)
+2021-02-15 23:09:22.419 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.419 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.421 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.421 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306155886347026432(String)
+2021-02-15 23:09:22.428 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.430 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.430 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306201167000240128(String)
+2021-02-15 23:09:22.437 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:22.438 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:22.438 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013106458263552(String)
+2021-02-15 23:09:22.446 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:09:27.407 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=qualityadmin happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 23:09:27.407 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=dz_gyb1 happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 23:09:27.421 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=hualanlan happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:09:27.442 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: dz_gyb1(String), COMMON(String)
+2021-02-15 23:09:27.448 DEBUG cn.jwis.qualityworkflow.util.EmailService[144]  get handler mail from http://gateway.dev.jwis.io/platform/sys/user/internal-read?name=kiween happen error cause:I/O error on GET request for "http://gateway.dev.jwis.io/platform/sys/user/internal-read": connect timed out; nested exception is java.net.SocketTimeoutException: connect timed out
+2021-02-15 23:09:27.451 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.451 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.451 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.451 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.451 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:09:27.455 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.455 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013110702899200(String)
+2021-02-15 23:09:27.458 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 1
+2021-02-15 23:09:27.461 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.622 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:09:27.622 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  workflow3 email is null
+2021-02-15 23:09:27.622 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:09:27.622 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb2 email is jian.song@jwis.cn
+2021-02-15 23:09:27.622 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.622 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.622 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.623 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945682796544(String)
+2021-02-15 23:09:27.623 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1339877445209161728(String)
+2021-02-15 23:09:27.623 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:09:27.633 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.633 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:09:27.633 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.633 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.633 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945716350976(String)
+2021-02-15 23:09:27.641 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.652 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  zhouxianling email is 
+2021-02-15 23:09:27.657 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.662 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:09:27.662 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286904434760089600(String)
+2021-02-15 23:09:27.662 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:09:27.662 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 23:09:27.662 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.662 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:09:27.662 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.662 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:09:27.662 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 23:09:27.662 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013113928318976(String)
+2021-02-15 23:09:27.667 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.668 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.668 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:09:27.668 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.903 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  gupp2 email is null
+2021-02-15 23:09:27.903 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:09:27.903 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:09:27.904 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.904 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.904 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.904 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 23:09:27.904 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:09:27.904 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193219738370048(String)
+2021-02-15 23:09:27.911 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.911 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.911 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 0
+2021-02-15 23:09:27.911 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.911 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.912 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193220166189056(String)
+2021-02-15 23:09:27.912 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 23:09:27.917 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.917 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 0
+2021-02-15 23:09:27.924 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.924 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286916730144161792(String)
+2021-02-15 23:09:27.930 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.937 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 23:09:27.938 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.938 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 23:09:27.940 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:09:27.940 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.940 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013116927246336(String)
+2021-02-15 23:09:27.944 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:27.947 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:09:27.958 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  gupp2 email is null
+2021-02-15 23:09:27.959 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.959 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 23:09:27.968 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 0
+2021-02-15 23:09:27.969 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:27.969 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: gupp2(String), QIMS(String)
+2021-02-15 23:09:27.972 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:09:27.973 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  kiween email is 
+2021-02-15 23:09:27.973 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.973 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.973 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193707351375872(String)
+2021-02-15 23:09:27.973 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1309046852858937344(String)
+2021-02-15 23:09:27.975 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 0
+2021-02-15 23:09:27.978 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:09:27.978 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.979 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.979 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295193707376541696(String)
+2021-02-15 23:09:27.982 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:27.982 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1287933861786812416(String)
+2021-02-15 23:09:27.985 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.990 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:27.998 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  codisan email is kelvin@jwis.cn
+2021-02-15 23:09:27.999 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:09:27.999 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:09:28.005 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:09:28.009 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  xujinbiao email is 
+2021-02-15 23:09:28.010 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:28.010 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: xujinbiao(String), COMMON(String)
+2021-02-15 23:09:28.011 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:09:28.011 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:28.011 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:09:28.021 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:28.028 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:28.029 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:28.029 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:09:28.037 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 1
+2021-02-15 23:09:28.039 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:09:28.039 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:09:28.040 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1315248790789160960(String)
+2021-02-15 23:09:28.046 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:09:28.057 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  workflow3 email is null
+2021-02-15 23:09:28.076 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb1 email is test@jwis.cn
+2021-02-15 23:09:28.076 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:09:28.077 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: dz_gyb1(String), COMMON(String)
+2021-02-15 23:09:28.087 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:09:28.115 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  zhouxianling email is 
+2021-02-15 23:09:28.120 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb2 email is jian.song@jwis.cn
+2021-02-15 23:09:28.120 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:09:28.120 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:09:28.130 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:09:28.130 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==>  Preparing: SELECT q.*,ar.processInstanceId ,ar.taskId,ar.assignee,ar.taskState,ar.taskName FROM line_qualify_info q,(SELECT workflow_business_id, process_instance_id as processInstanceId,task_id as taskId,assignee,task_state as taskState,task_name taskName FROM task_record WHERE task_id=?) ar where q.id=ar.workflow_business_id 
+2021-02-15 23:09:28.130 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==> Parameters: 5506556(String)
+2021-02-15 23:09:28.140 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  <==      Total: 1
+2021-02-15 23:09:28.181 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==>  Preparing: SELECT * from task_record WHERE id = ? 
+2021-02-15 23:09:28.182 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==> Parameters: 1287933861786812416(String)
+2021-02-15 23:09:28.190 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  <==      Total: 1
+2021-02-15 23:09:28.190 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:09:28.191 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:09:28.199 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:09:28.308 INFO  cn.jwis.qualityworkflow.util.EmailService[71]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn
+2021-02-15 23:09:28.308 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn fail, because null
+2021-02-15 23:09:28.308 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to kelvin@jwis.cn fail, because null
+2021-02-15 23:09:28.308 INFO  cn.jwis.qualityworkflow.util.EmailService[69]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn and make a copy for [jian.song@jwis.cn]
+2021-02-15 23:09:29.020 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.qimsSendMail(QimsSendMailServiceImpl.java:90)
+	at cn.jwis.qualityworkflow.modules.qims.job.qimsMailJob.qimsSendMail(qimsMailJob.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:09:29.020 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (kelvin@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl.qimsSendMail(AuditQualityProblemServiceImpl.java:321)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$FastClassBySpringCGLIB$$15ff325f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$EnhancerBySpringCGLIB$$7a8e2e54.qimsSendMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.ipqc.job.ipqcMailJob.qimsSendMail(ipqcMailJob.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:09:29.020 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendEmailTohandler(AuditQuestionServiceImpl.java:457)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendOverTimeMail(AuditQuestionServiceImpl.java:434)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$FastClassBySpringCGLIB$$b4134941.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$EnhancerBySpringCGLIB$$6e56d03a.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.job.AuditQuestionMailJob.sendOverTimeMail(AuditQuestionMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:09:29.031 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (jian.song@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendEmailTohandler(LineQualifyServiceImpl.java:627)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendOverTimeMail(LineQualifyServiceImpl.java:604)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$FastClassBySpringCGLIB$$4ca6f597.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$EnhancerBySpringCGLIB$$c1fd3afc.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.linequalify.job.LineQualifyMailJob.sendOverTimeMail(LineQualifyMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:10:00.002 INFO  c.j.q.m.t.T.TraceabilityMachineTimerManager[50]  设备定时任务开启
+2021-02-15 23:10:00.043 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineList[145]  ==>  Preparing: select table_name from traceability_machine_data group by table_name 
+2021-02-15 23:10:00.043 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineList[145]  ==> Parameters: 
+2021-02-15 23:10:00.059 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineList[145]  <==      Total: 5
+2021-02-15 23:10:00.060 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineFiledName[145]  ==>  Preparing: select filed_name from traceability_machine_data where table_name=? 
+2021-02-15 23:10:00.060 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineFiledName[145]  ==> Parameters: dust_free_shed(String)
+2021-02-15 23:10:00.066 DEBUG c.j.q.m.t.d.T.getTraceabilityMachineFiledName[145]  <==      Total: 11
+2021-02-15 23:10:00.067 DEBUG c.j.q.m.t.d.T.getMaxCreateTime[145]  ==>  Preparing: select max(createtime) from dust_free_shed 
+2021-02-15 23:10:00.067 DEBUG c.j.q.m.t.d.T.getMaxCreateTime[145]  ==> Parameters: 
+2021-02-15 23:10:00.130 DEBUG c.j.q.m.t.d.T.getMaxCreateTime[145]  <==      Total: 1
+2021-02-15 23:10:00.723 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] java.lang.NullPointerException: null
+	at cn.jwis.qualityworkflow.modules.traceablity.TimerManager.TraceabilityMachineTimerManager.getLenovoMachineData(TraceabilityMachineTimerManager.java:105)
+	at cn.jwis.qualityworkflow.modules.traceablity.TimerManager.TraceabilityMachineTimerManager.MachineTimerManager(TraceabilityMachineTimerManager.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:14:21.957 INFO  c.j.qualityworkflow.modules.ipqc.job.ipqcMailJob[27]  查询IPQC超时任务
+2021-02-15 23:14:21.966 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '节假日' 
+2021-02-15 23:14:21.966 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:14:21.966 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:14:21.966 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==>  Preparing: SELECT *, HOUR(timediff(now() , create_date)) overTimeNum FROM task_record WHERE template_key = ? AND task_state IS NULL AND task_name = ? AND HOUR(timediff(now() , create_date)) >= ? 
+2021-02-15 23:14:21.966 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  ==> Parameters: 
+2021-02-15 23:14:21.967 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: FactoryAuditProcess(String), 部门审核(String), 24(Integer)
+2021-02-15 23:14:21.967 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  ==> Parameters: IPQCAuditProcess(String), 24(Integer)
+2021-02-15 23:14:21.967 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  ==> Parameters: Line Qualify(String), 文件收集(String), 2(Integer)
+2021-02-15 23:14:21.974 DEBUG c.j.q.m.qims.dao.BlackDashBoardMapper.getHoliday[145]  <==      Total: 6
+2021-02-15 23:14:21.975 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==>  Preparing: SELECT DISTINCT date FROM holiday_maintenance WHERE type = '补班' 
+2021-02-15 23:14:21.975 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  ==> Parameters: 
+2021-02-15 23:14:21.977 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 4
+2021-02-15 23:14:21.977 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.977 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192540470837248(String)
+2021-02-15 23:14:21.979 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord[145]  <==      Total: 12
+2021-02-15 23:14:21.980 DEBUG c.j.q.dao.TaskRecordMapper.getOverTimeTaskRecord2[145]  <==      Total: 28
+2021-02-15 23:14:21.980 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.980 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1294123945645047808(String)
+2021-02-15 23:14:21.980 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.980 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868320843300864(String)
+2021-02-15 23:14:21.982 DEBUG c.j.q.m.q.d.B.getWorkOvertimeList[145]  <==      Total: 4
+2021-02-15 23:14:21.982 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==>  Preparing: select * from qims_lt_standard_info 
+2021-02-15 23:14:21.982 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  ==> Parameters: 
+2021-02-15 23:14:21.987 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:21.987 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:21.987 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:21.988 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.988 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.988 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1295192619508301824(String)
+2021-02-15 23:14:21.988 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868347422605312(String)
+2021-02-15 23:14:21.994 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getLtStandard[145]  <==      Total: 8
+2021-02-15 23:14:21.994 INFO  c.j.qualityworkflow.modules.qims.job.qimsMailJob[47]  查询黑色问题超过LT的信息
+2021-02-15 23:14:21.994 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==>  Preparing: select * from task_record where task_name in('初步原因分析','根本原因分析','根本原因审核') and task_state is null and template_key='QIMSBLACK' 
+2021-02-15 23:14:21.994 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:21.994 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:21.994 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  ==> Parameters: 
+2021-02-15 23:14:21.995 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.995 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:21.995 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303868393815801856(String)
+2021-02-15 23:14:21.995 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1299240419787276288(String)
+2021-02-15 23:14:22.005 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.005 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.006 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.006 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303937438065885184(String)
+2021-02-15 23:14:22.007 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getBlackList[145]  <==      Total: 16
+2021-02-15 23:14:22.010 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.010 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1286902446076985344(String)
+2021-02-15 23:14:22.017 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.017 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.018 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939538460082176(String)
+2021-02-15 23:14:22.032 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.032 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.033 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb1 email is test@jwis.cn
+2021-02-15 23:14:22.034 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.034 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.038 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: dz_gyb1(String), COMMON(String)
+2021-02-15 23:14:22.039 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1303939599889858560(String)
+2021-02-15 23:14:22.043 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.043 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.043 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:14:22.046 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:14:22.046 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.046 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.046 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306059696263659520(String)
+2021-02-15 23:14:22.050 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:14:22.053 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.053 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.053 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306155886347026432(String)
+2021-02-15 23:14:22.057 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:14:22.057 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.057 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:14:22.060 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.061 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.061 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1306201167000240128(String)
+2021-02-15 23:14:22.065 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  dz_gyb2 email is jian.song@jwis.cn
+2021-02-15 23:14:22.065 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:14:22.065 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:14:22.065 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==>  Preparing: select superior_manager from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.065 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:14:22.065 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  ==> Parameters: hualanlan(String), QIMS(String)
+2021-02-15 23:14:22.067 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.068 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.068 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013106458263552(String)
+2021-02-15 23:14:22.072 DEBUG c.j.q.dao.UserMapper.getSuperiorManagerByUser[145]  <==      Total: 1
+2021-02-15 23:14:22.072 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:14:22.072 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==>  Preparing: SELECT q.*,ar.processInstanceId ,ar.taskId,ar.assignee,ar.taskState,ar.taskName FROM line_qualify_info q,(SELECT workflow_business_id, process_instance_id as processInstanceId,task_id as taskId,assignee,task_state as taskState,task_name taskName FROM task_record WHERE task_id=?) ar where q.id=ar.workflow_business_id 
+2021-02-15 23:14:22.073 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  ==> Parameters: 5490632(String)
+2021-02-15 23:14:22.079 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:14:22.080 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.080 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.081 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1339877445209161728(String)
+2021-02-15 23:14:22.086 DEBUG c.j.q.m.l.d.L.getLineQualifyDetailednessInfo[145]  <==      Total: 1
+2021-02-15 23:14:22.087 INFO  cn.jwis.qualityworkflow.util.EmailService[69]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn and make a copy for [jian.song@jwis.cn]
+2021-02-15 23:14:22.091 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:14:22.097 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  workflow3 email is null
+2021-02-15 23:14:22.100 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  kiween email is 
+2021-02-15 23:14:22.101 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.101 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013110702899200(String)
+2021-02-15 23:14:22.107 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.114 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  hualanlan email is test@jwis.cn
+2021-02-15 23:14:22.115 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:14:22.115 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:14:22.117 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  zhouxianling email is 
+2021-02-15 23:14:22.118 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==>  Preparing: SELECT * from task_record WHERE id = ? 
+2021-02-15 23:14:22.118 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  ==> Parameters: 1286902446076985344(String)
+2021-02-15 23:14:22.124 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:14:22.125 DEBUG c.j.qualityworkflow.dao.TaskRecordMapper.getById[145]  <==      Total: 1
+2021-02-15 23:14:22.126 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:14:22.126 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn fail, because null
+2021-02-15 23:14:22.126 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:14:22.128 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.129 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.129 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:14:22.135 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:14:22.136 INFO  cn.jwis.qualityworkflow.util.EmailService[71]  haomiao.liu@jwis.cn send a Mail to test@jwis.cn
+2021-02-15 23:14:22.139 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:14:22.161 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.161 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.161 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013113928318976(String)
+2021-02-15 23:14:22.179 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 1
+2021-02-15 23:14:22.200 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.201 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==>  Preparing: select superior from department_mapping where user_account = ? and type = ? limit 0,1 
+2021-02-15 23:14:22.201 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  ==> Parameters: qualityadmin(String), COMMON(String)
+2021-02-15 23:14:22.210 DEBUG cn.jwis.qualityworkflow.dao.UserMapper.getSuperior[145]  <==      Total: 1
+2021-02-15 23:14:22.232 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  qualityadmin email is 
+2021-02-15 23:14:22.232 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.233 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1308013116927246336(String)
+2021-02-15 23:14:22.242 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:14:22.263 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  kiween email is 
+2021-02-15 23:14:22.264 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==>  Preparing: select time from email_history_info where id =? 
+2021-02-15 23:14:22.264 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  ==> Parameters: 1309046852858937344(String)
+2021-02-15 23:14:22.272 DEBUG c.j.q.m.qims.dao.QimsSendMailMapper.getTimeById[145]  <==      Total: 0
+2021-02-15 23:14:22.291 INFO  cn.jwis.qualityworkflow.util.EmailService[142]  codisan email is kelvin@jwis.cn
+2021-02-15 23:14:22.291 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==>  Preparing: SELECT * FROM key_to_name 
+2021-02-15 23:14:22.291 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  ==> Parameters: 
+2021-02-15 23:14:22.303 DEBUG c.j.qualityworkflow.dao.CommonMapper.getKeyToName[145]  <==      Total: 8
+2021-02-15 23:14:22.307 INFO  cn.jwis.qualityworkflow.util.EmailService[74]  haomiao.liu@jwis.cn send a Mail to kelvin@jwis.cn fail, because null
+2021-02-15 23:14:22.689 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendEmailTohandler(AuditQuestionServiceImpl.java:457)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl.sendOverTimeMail(AuditQuestionServiceImpl.java:434)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$FastClassBySpringCGLIB$$b4134941.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.service.imp.AuditQuestionServiceImpl$$EnhancerBySpringCGLIB$$6e56d03a.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.factoryaudit.job.AuditQuestionMailJob.sendOverTimeMail(AuditQuestionMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:14:22.770 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.qimsSendMail(QimsSendMailServiceImpl.java:90)
+	at cn.jwis.qualityworkflow.modules.qims.job.qimsMailJob.qimsSendMail(qimsMailJob.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:14:22.811 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (test@jwis.cn) dosn't exist
+;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (jian.song@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendEmailTohandler(LineQualifyServiceImpl.java:627)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl.sendOverTimeMail(LineQualifyServiceImpl.java:604)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$FastClassBySpringCGLIB$$4ca6f597.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.linequalify.service.imp.LineQualifyServiceImpl$$EnhancerBySpringCGLIB$$c1fd3afc.sendOverTimeMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.linequalify.job.LineQualifyMailJob.sendOverTimeMail(LineQualifyMailJob.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.
+2021-02-15 23:14:22.953 ERROR o.s.s.support.TaskUtils$LoggingErrorHandler[96] org.springframework.mail.MailSendException: Failed messages: javax.mail.SendFailedException: Invalid Addresses;
+  nested exception is:
+	com.sun.mail.smtp.SMTPAddressFailedException: 554 RCPT (kelvin@jwis.cn) dosn't exist
+
+	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:488)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:359)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:354)
+	at cn.jwis.qualityworkflow.util.EmailService.sendHtmlMail(EmailService.java:76)
+	at cn.jwis.qualityworkflow.modules.qims.service.imp.QimsSendMailServiceImpl.sendEmailTohandler(QimsSendMailServiceImpl.java:161)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl.qimsSendMail(AuditQualityProblemServiceImpl.java:321)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$FastClassBySpringCGLIB$$15ff325f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at cn.jwis.qualityworkflow.modules.ipqc.service.imp.AuditQualityProblemServiceImpl$$EnhancerBySpringCGLIB$$7a8e2e54.qimsSendMail(<generated>)
+	at cn.jwis.qualityworkflow.modules.ipqc.job.ipqcMailJob.qimsSendMail(ipqcMailJob.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+ Unexpected error occurred in scheduled task.

@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "id.generator",
+      "type": "cn.jwis.qualityworkflow.id.IDGeneratorRunner",
+      "sourceType": "cn.jwis.qualityworkflow.id.IDGeneratorRunner"
+    },
+    {
+      "name": "spring.datasource.master",
+      "type": "javax.sql.DataSource",
+      "sourceType": "cn.jwis.qualityworkflow.config.DataSourceConfig",
+      "sourceMethod": "masterDataSource()"
+    },
+    {
+      "name": "spring.datasource.slave",
+      "type": "javax.sql.DataSource",
+      "sourceType": "cn.jwis.qualityworkflow.config.DataSourceConfig",
+      "sourceMethod": "slaveDataSource()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

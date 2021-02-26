@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+ <!--参考文档   http://mybatis.org/generator/configreference/table.html -->
+<generatorConfiguration>
+    <properties resource="generator.properties"/>
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--可以自定义生成model的代码注释-->
+        <commentGenerator type="cn.jwis.qualityworkflow.modules.ecn.mbg.CommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--suppressAllComments 是否在生成代码中包含注释-->
+            <property name="suppressAllComments" value="true"/>
+            <!--suppressDate 注释中是否包括生成时间戳-->
+            <property name="suppressDate" value="true"/>
+            <!--addRemarkComments 是否在生成的注释中包括来自db表的表和列注释-->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!--配置数据库连接-->
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+        <!--指定生成model的路径-->
+        <!--targetPackage 生成的model放在哪一个包中-->
+        <!--targetProject 生成的model放的工程路径， 有时候是绝对路径， 有时候又是相对路径，还没研究明白 ε=(´ο｀*)))唉-->
+        <javaModelGenerator targetPackage="cn.jwis.qualityworkflow.modules.apqp.bean" targetProject="D:\ideaProject\QMS\quality-workflow-service\src\main\java"/>
+        <!--指定生成mapper.xml的路径-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="D:\ideaProject\QMS\quality-workflow-service\src\main\resources"/>
+        <!--指定生成mapper接口的的路径-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.jwis.qualityworkflow.modules.apqp.dao"
+                             targetProject="D:\ideaProject\QMS\quality-workflow-service\src\main\java"/>
+        <!--tableName 指定要生成的表名， 如果要生成全部表tableName设为%-->
+        <table tableName=""></table>
+    </context>
+</generatorConfiguration>
