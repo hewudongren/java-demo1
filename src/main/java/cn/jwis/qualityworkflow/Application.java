@@ -1,10 +1,6 @@
 package cn.jwis.qualityworkflow;
 
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-
+import cn.jwis.configration.clientUtil.ConfigCenterHelper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +9,10 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
-import cn.jwis.configration.clientUtil.ConfigCenterHelper;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 @SpringBootApplication
 @EnableScheduling
@@ -30,6 +29,7 @@ public class Application {
 		ConfigCenterHelper.getConfig(defaultMap, appName);// 调用read_Config.jar包内读取配置的方法
 		springApplication.setDefaultProperties(defaultMap);// 将配置加载到启动项中
 		springApplication.run(args);
+		System.out.println("么么哒");
 	}
 
 	@Bean
