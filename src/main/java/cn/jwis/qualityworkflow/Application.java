@@ -30,6 +30,7 @@ public class Application {
 		springApplication.setDefaultProperties(defaultMap);// 将配置加载到启动项中
 		springApplication.run(args);
 		System.out.println("么么哒");
+		System.out.println("不能提交");
 	}
 
 	@Bean
